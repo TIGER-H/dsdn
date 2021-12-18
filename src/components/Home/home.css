@@ -2,7 +2,7 @@
   width: 100vw;
   display: flex;
   gap: 15px;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .sidebar {

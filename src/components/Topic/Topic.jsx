@@ -3,7 +3,7 @@ import "./topic.css";
 const Topic = () => {
   return (
     <div className="topic">
-      <p>Topic</p>
+      <p>Topics</p>
       <div className="topicBottom">
         <TopicCard topicContent={"CSS Annual Report"} color={"#6BAED7"} />
         <TopicCard topicContent={"OpenGL Open function"} color={"#978EF8"} />

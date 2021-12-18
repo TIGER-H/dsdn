@@ -1,0 +1,37 @@
+.post {
+  box-sizing: border-box;
+  width: 860px;
+  margin-top: 14px;
+  background: rgba(25, 30, 46, 0.8);
+  border-radius: 17px;
+  padding: 20px;
+  color: white;
+
+  display: flex;
+}
+
+.postAvatar{
+  margin-right: 15px;
+}
+
+.postMain{
+  display: flex;
+  flex-direction: column;
+}
+
+.postUsername{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.postContent{
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.postTime{
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  line-height: 21px;
+}
+

@@ -1,0 +1,108 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: rgba(25, 30, 46, 0.8);
+  border-radius: 17px;
+  color: #fff;
+  /* temporary css for debug */
+  width: 312px;
+  height: 783px;
+  margin-left: 50px;
+}
+
+.sidebarUpper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.avatarUser {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 50px;
+  margin-bottom: 1rem;
+}
+
+.username {
+  color: #fff;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.userAddr {
+  font-weight: 300;
+  line-height: 21px;
+  font-size: 14px;
+  color: #52c3e6;
+  margin-bottom: 1rem;
+}
+
+.userBadges {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.showmoreButton {
+  font-family: "Poppins", serif;
+  width: 9rem;
+  height: 2rem;
+  border: 0;
+  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 24px;
+  background: linear-gradient(270deg, #4faac6 2.45%, #2c6bce 100%);
+  border-radius: 5px;
+}
+
+.showmoreButton:hover{
+  cursor: pointer;
+}
+
+.sidebarBottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sidebarBottom ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 17px;
+  width: 100%;
+}
+
+.sidebarBottom ul li {
+  width: 100%;
+  height: 54px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebarBottomWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sidebarBottomWrapper:hover {
+  background: rgba(25, 30, 46, 0.8);
+  color: white;
+  cursor: pointer;
+}
+
+.sidebarBottom ul li svg {
+  margin: 0 41px;
+}

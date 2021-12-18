@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-left: 120px;
+  padding: 20px;
+  /* margin-top: 50px; */
+}
+
+.header-logo {
+  flex: 2;
+  display: flex;
+  align-items: baseline;
+}
+
+.header-logo > img{
+  width: 69px;
+  height: 72px;
+}
+
+.header-logo > p {
+  margin: 0;
+  /* font-family: "Poppins", sans-serif; */
+  font-weight: 700;
+  font-size: 35px;
+  color: #52c3e6;
+}

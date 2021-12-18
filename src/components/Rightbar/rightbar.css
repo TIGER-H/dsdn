@@ -1,0 +1,104 @@
+.rightbar {
+  width: 446px;
+  height: 783px;
+
+  background: rgba(25, 30, 46, 0.8);
+  border-radius: 17px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightbarTabs {
+  margin-top: 42px;
+  line-height: 54px;
+  text-align: center;
+  color: white;
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightbarTabL {
+  width: 167px;
+  height: 54px;
+
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  border-radius: 27px 0px 0px 27px;
+  margin-right: -2px;
+}
+
+.rightbarTabL:hover,
+.rightbarTabR:hover {
+  cursor: pointer;
+  border-color: #52c3e6;
+  color: #52c3e6;
+}
+
+.rightbarTabL:hover + .rightbarTabR {
+  border-left: 2px solid #52c3e6;
+}
+
+.rightbarTabR:hover + .rightbarTabL {
+  border-right: transparent;
+}
+
+.rightbarTabR {
+  width: 167px;
+  height: 54px;
+  color: #ffffff;
+  box-sizing: border-box;
+  border: 2px solid #ffffff;
+  border-radius: 0px 27px 27px 0px;
+}
+
+.rightbarTopThree {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-size: 18px;
+}
+
+.rightbarTopThreeItem:nth-child(1),
+.rightbarTopThreeItem:nth-child(3) {
+  align-self: end;
+}
+
+.rightbarTopThreeItemValue {
+  color: #52c3e6;
+  font-size: 14px;
+  text-align: center;
+}
+
+.rightbarTopElse {
+  padding: 0;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.rightbarTopElseRank {
+  color: #52c3e6;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.rightbarTopElseItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.rightbarTopElseName {
+  font-size: 18px;
+}
+.rightbarTopElseValue {
+  font-size: 14px;
+  color: #52c3e6;
+}

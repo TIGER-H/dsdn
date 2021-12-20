@@ -42,6 +42,10 @@
   margin-bottom: 1rem;
 }
 
+.userAddr > svg {
+  cursor: pointer;
+}
+
 .userBadges {
   display: flex;
   flex-direction: row;
@@ -64,7 +68,7 @@
   border-radius: 5px;
 }
 
-.showmoreButton:hover{
+.showmoreButton:hover {
   cursor: pointer;
 }
 
@@ -101,6 +105,10 @@
   background: rgba(25, 30, 46, 0.8);
   color: white;
   cursor: pointer;
+}
+
+.sidebarBottomWrapper:hover > svg > path {
+  fill-opacity: 1;
 }
 
 .sidebarBottom ul li svg {

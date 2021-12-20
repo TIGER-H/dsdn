@@ -1,4 +1,5 @@
 import Avatar from "boring-avatars";
+import { bronzeMedal, goldMedal, silverMedal } from ".";
 
 import "./rightbar.css";
 const Rightbar = () => {
@@ -11,15 +12,18 @@ const Rightbar = () => {
       <div className="rightbarTopThree">
         <div className="rightbarTopThreeItem">
           <Avatar size={80} name="top1" variant="beam" />
+          <div className="rightbarTop3Badge">{silverMedal}</div>
           <div className="rightbarTopThreeItemName">Rick and ...</div>
           <div className="rightbarTopThreeItemValue">$ 3.87m</div>
         </div>
         <div className="rightbarTopThreeItem">
           <Avatar size={80} name="top2" variant="beam" />
+          <div className="rightbarTop3Badge">{goldMedal}</div>
           <div className="rightbarTopThreeItemName">some bd</div>
           <div className="rightbarTopThreeItemValue">$ 3.87m</div>
         </div>
         <div className="rightbarTopThreeItem">
+          <div className="rightbarTop3Badge">{bronzeMedal}</div>
           <Avatar size={80} name="top3" variant="beam" />
           <div className="rightbarTopThreeItemName">asdsacax</div>
           <div className="rightbarTopThreeItemValue">$ 3.87m</div>

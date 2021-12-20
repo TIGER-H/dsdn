@@ -11,6 +11,8 @@
   justify-content: space-evenly;
   padding: 10px;
   gap: 10px;
+
+  position: relative;
 }
 
 .topic > p {
@@ -18,7 +20,6 @@
   line-height: 30px;
   font-size: 20px;
   color: white;
-
 }
 
 .topicBottom {
@@ -27,6 +28,8 @@
 }
 
 .topicCard {
+  position: relative;
+
   width: 259px;
   height: 76px;
 
@@ -50,4 +53,26 @@
 
 .topicCard:nth-child(3) {
   background: #2c334e;
+}
+
+.topicIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.topicIcon:hover {
+  cursor: pointer;
+}
+
+.topicRules{
+  position: absolute;
+  color: #52C3E6;
+  top: 16px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.topicRules > svg{
+  margin-right: 10px;
 }

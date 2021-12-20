@@ -74,6 +74,7 @@ export default {
       <path
         d="M18 16H2C0.89543 16 0 15.1046 0 14V2C0 0.89543 0.89543 0 2 0H18C19.1046 0 20 0.89543 20 2V14C20 15.1046 19.1046 16 18 16ZM2 8V14H18V8H2ZM2 2V4H18V2H2ZM11 12H4V10H11V12Z"
         fill="white"
+        fillOpacity="0.7"
       />
     </svg>
   ),

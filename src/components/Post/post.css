@@ -1,7 +1,11 @@
+.posts {
+  padding: 14px 0;
+}
+
 .post {
   box-sizing: border-box;
   width: 860px;
-  margin-top: 14px;
+  /* margin-top: 14px; */
   background: rgba(25, 30, 46, 0.8);
   border-radius: 17px;
   padding: 20px;
@@ -10,28 +14,52 @@
   display: flex;
 }
 
-.postAvatar{
+.postAvatar {
   margin-right: 15px;
 }
 
-.postMain{
+.postMain {
   display: flex;
   flex-direction: column;
 }
 
-.postUsername{
+.postUsername {
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
 }
 
-.postContent{
+.postContent {
   color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
 }
 
-.postTime{
+.postTime {
   color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
   line-height: 21px;
+  margin-bottom: 20px;
 }
 
+.postActions {
+  padding-right: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postAction {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.postAction.postAction--active > svg > path {
+  fill-opacity: 1;
+  fill: #52c3e6;
+}
+
+.postAction > svg:hover > path {
+  fill-opacity: 1;
+  fill: #52c3e6;
+}

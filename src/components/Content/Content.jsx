@@ -1,5 +1,6 @@
 import Posts from "../Posts";
 import Topic from "../Topic";
+import "./content.css";
 
 const Content = () => {
   return (

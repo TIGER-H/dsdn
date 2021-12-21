@@ -4,13 +4,13 @@
 }
 
 .sidebar {
-  flex: 2;
+  /* flex: 2; */
 }
 
 .content {
-  flex: 6; 
+  /* flex: 6;  */
 }
 
 .rightbar {
-  flex: 3;
+  /* flex: 3; */
 }

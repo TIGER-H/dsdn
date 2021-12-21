@@ -1,6 +1,6 @@
 import logo from "../../logo.svg";
 import Searchbar from "../Searchbar";
-import './header.css';
+import "./header.css";
 
 const Header = () => {
   return (

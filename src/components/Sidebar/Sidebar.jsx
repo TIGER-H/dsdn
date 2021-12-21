@@ -7,7 +7,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebarUpper">
         <div className="avatarUser">
-          <Avatar size={90} name="John Doe" variant="beam" />
+          <Avatar size={70} name="John Doe" variant="beam" />
         </div>
         <span className="username">One Piece</span>
         <span className="userAddr">0x4121eb...70cad37a {icons.copy}</span>
@@ -21,25 +21,25 @@ const Sidebar = () => {
       <div className="sidebarBottom">
         <ul>
           <li>
-            <div className="sidebarBottomWrapper">
+            <div className="sidebarBottomItem">
               {icons.calander}
               <span>Communicate</span>
             </div>
           </li>
           <li>
-            <div className="sidebarBottomWrapper">
+            <div className="sidebarBottomItem">
               {icons.communication}
               <span>History</span>
             </div>
           </li>
           <li>
-            <div className="sidebarBottomWrapper">
+            <div className="sidebarBottomItem">
               {icons.settings}
               <span>Account Setting</span>
             </div>
           </li>
           <li>
-            <div className="sidebarBottomWrapper">
+            <div className="sidebarBottomItem">
               {icons.wallet}
               <span>Wallet</span>
             </div>

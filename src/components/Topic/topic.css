@@ -1,6 +1,6 @@
 .topic {
   box-sizing: border-box;
-  width: 860px;
+  /* width: 860px; */
   height: 156px;
 
   background: rgba(25, 30, 46, 0.8);
@@ -30,7 +30,8 @@
 .topicCard {
   position: relative;
 
-  width: 259px;
+  flex-grow: 1;
+  /* width: 259px; */
   height: 76px;
 
   color: white;

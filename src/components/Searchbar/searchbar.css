@@ -4,7 +4,7 @@
 }
 
 .search-input {
-  width: 630px;
+  /* width: 630px; */
   display: flex;
   align-items: center;
   border: 2px solid #52c3e6;

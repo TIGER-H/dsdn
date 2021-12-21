@@ -1,13 +1,10 @@
 .sidebar {
-  display: flex;
-  flex-direction: column;
   background: rgba(25, 30, 46, 0.8);
   border-radius: 17px;
-  color: #fff;
+
   /* temporary css for debug */
-  width: 312px;
-  height: 783px;
-  margin-left: 50px;
+  /* width: 312px; */
+  /* height: 783px; */
 }
 
 .sidebarUpper {
@@ -73,7 +70,6 @@
 }
 
 .sidebarBottom {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,6 +95,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: start;
 }
 
 .sidebarBottomWrapper:hover {
@@ -108,9 +105,5 @@
 }
 
 .sidebarBottomWrapper:hover > svg > path {
-  fill-opacity: 1;
-}
-
-.sidebarBottom ul li svg {
-  margin: 0 41px;
+  fillOpacity: 1;
 }

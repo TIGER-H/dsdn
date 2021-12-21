@@ -3,15 +3,9 @@ import icons from "./icons";
 import "./sidebar.css";
 
 const Sidebar = () => {
-  console.log(icons.calander);
   return (
     <div className="sidebar">
       <div className="sidebarUpper">
-        {/* <img
-          src="https://upload.wikimedia.org/wikipedia/zh/thumb/6/61/ONE_PIECE_Logo.svg/280px-ONE_PIECE_Logo.svg.png"
-          alt="avatar"
-          className="avatarUser"
-        /> */}
         <div className="avatarUser">
           <Avatar size={90} name="John Doe" variant="beam" />
         </div>

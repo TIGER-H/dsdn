@@ -1,5 +1,5 @@
 .rightbar {
-  width: 446px;
+  /* width: 446px; */
   height: 783px;
 
   background: rgba(25, 30, 46, 0.8);
@@ -19,8 +19,12 @@
   justify-content: center;
 }
 
+.rightbarTabs > * {
+  width: 45%;
+}
+
 .rightbarTabL {
-  width: 167px;
+  /* width: 167px; */
   height: 54px;
 
   border: 2px solid #fff;
@@ -45,7 +49,7 @@
 }
 
 .rightbarTabR {
-  width: 167px;
+  /* width: 167px; */
   height: 54px;
   color: #ffffff;
   box-sizing: border-box;

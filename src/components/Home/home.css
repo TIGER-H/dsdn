@@ -1,18 +1,16 @@
 .home {
-  width: 100vw;
   display: flex;
   gap: 15px;
-  justify-content: center;
 }
 
 .sidebar {
-  
+  flex: 2;
 }
 
 .content {
-  
+  flex: 6; 
 }
 
 .rightbar {
-  
+  flex: 3;
 }

@@ -8,7 +8,7 @@ export const silverMedal = (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_32_364)">
+    <g clipPath="url(#clip0_32_364)">
       <path
         d="M0 12.8572L5.9124 17.9864V7.72787L0 12.8572Z"
         fill="url(#paint0_linear_32_364)"
@@ -84,9 +84,9 @@ export const silverMedal = (
         width="7.08694"
         height="9.26883"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -120,8 +120,8 @@ export const silverMedal = (
         y2="8.85137"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#849FBE" />
-        <stop offset="0.53" stop-color="#C0D3E4" />
+        <stop stopColor="#849FBE" />
+        <stop offset="0.53" stopColor="#C0D3E4" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_32_364"
@@ -131,8 +131,8 @@ export const silverMedal = (
         y2="19.2815"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#849FBE" />
-        <stop offset="0.53" stop-color="#C0D3E4" />
+        <stop stopColor="#849FBE" />
+        <stop offset="0.53" stopColor="#C0D3E4" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_32_364"
@@ -142,8 +142,8 @@ export const silverMedal = (
         y2="23.1673"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.47" stop-color="#C0D3E4" />
-        <stop offset="1" stop-color="#849FBE" />
+        <stop offset="0.47" stopColor="#C0D3E4" />
+        <stop offset="1" stopColor="#849FBE" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_32_364"
@@ -153,8 +153,8 @@ export const silverMedal = (
         y2="16.0526"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#849FBE" />
-        <stop offset="0.53" stop-color="#C0D3E4" />
+        <stop stopColor="#849FBE" />
+        <stop offset="0.53" stopColor="#C0D3E4" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_32_364"
@@ -164,8 +164,8 @@ export const silverMedal = (
         y2="1.37075"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.47" stop-color="#C0D3E4" />
-        <stop offset="1" stop-color="#849FBE" />
+        <stop offset="0.47" stopColor="#C0D3E4" />
+        <stop offset="1" stopColor="#849FBE" />
       </linearGradient>
       <linearGradient
         id="paint5_linear_32_364"
@@ -175,8 +175,8 @@ export const silverMedal = (
         y2="3.81623"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.47" stop-color="#C0D3E4" />
-        <stop offset="1" stop-color="#849FBE" />
+        <stop offset="0.47" stopColor="#C0D3E4" />
+        <stop offset="1" stopColor="#849FBE" />
       </linearGradient>
       <linearGradient
         id="paint6_linear_32_364"
@@ -186,8 +186,8 @@ export const silverMedal = (
         y2="15.4218"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EDF4F6" />
-        <stop offset="1" stop-color="#C4D9EC" />
+        <stop stopColor="#EDF4F6" />
+        <stop offset="1" stopColor="#C4D9EC" />
       </linearGradient>
       <linearGradient
         id="paint7_linear_32_364"
@@ -197,8 +197,8 @@ export const silverMedal = (
         y2="23.1804"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EDF4F6" />
-        <stop offset="1" stop-color="#C4D9EC" />
+        <stop stopColor="#EDF4F6" />
+        <stop offset="1" stopColor="#C4D9EC" />
       </linearGradient>
       <linearGradient
         id="paint8_linear_32_364"
@@ -208,8 +208,8 @@ export const silverMedal = (
         y2="21.8981"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EDF4F6" />
-        <stop offset="1" stop-color="#C4D9EC" />
+        <stop stopColor="#EDF4F6" />
+        <stop offset="1" stopColor="#C4D9EC" />
       </linearGradient>
       <linearGradient
         id="paint9_linear_32_364"
@@ -219,8 +219,8 @@ export const silverMedal = (
         y2="13.7654"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EDF4F6" />
-        <stop offset="1" stop-color="#C4D9EC" />
+        <stop stopColor="#EDF4F6" />
+        <stop offset="1" stopColor="#C4D9EC" />
       </linearGradient>
       <linearGradient
         id="paint10_linear_32_364"
@@ -230,8 +230,8 @@ export const silverMedal = (
         y2="1.11388"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EDF4F6" />
-        <stop offset="1" stop-color="#C4D9EC" />
+        <stop stopColor="#EDF4F6" />
+        <stop offset="1" stopColor="#C4D9EC" />
       </linearGradient>
       <linearGradient
         id="paint11_linear_32_364"
@@ -241,8 +241,8 @@ export const silverMedal = (
         y2="7.888"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EDF4F6" />
-        <stop offset="1" stop-color="#C4D9EC" />
+        <stop stopColor="#EDF4F6" />
+        <stop offset="1" stopColor="#C4D9EC" />
       </linearGradient>
       <linearGradient
         id="paint12_linear_32_364"
@@ -252,8 +252,8 @@ export const silverMedal = (
         y2="2.22751"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#879FCA" />
-        <stop offset="1" stop-color="#BED4EC" />
+        <stop stopColor="#879FCA" />
+        <stop offset="1" stopColor="#BED4EC" />
       </linearGradient>
       <linearGradient
         id="paint13_linear_32_364"
@@ -263,8 +263,8 @@ export const silverMedal = (
         y2="4.40795"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#B4CDE1" />
-        <stop offset="1" stop-color="#D4E3ED" />
+        <stop stopColor="#B4CDE1" />
+        <stop offset="1" stopColor="#D4E3ED" />
       </linearGradient>
       <linearGradient
         id="paint14_linear_32_364"
@@ -274,8 +274,8 @@ export const silverMedal = (
         y2="6.04327"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#C7DAEB" />
-        <stop offset="1" stop-color="#EDF6F7" />
+        <stop stopColor="#C7DAEB" />
+        <stop offset="1" stopColor="#EDF6F7" />
       </linearGradient>
       <linearGradient
         id="paint15_linear_32_364"
@@ -285,8 +285,8 @@ export const silverMedal = (
         y2="9.35307"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#879FCA" />
-        <stop offset="1" stop-color="#BED4EC" />
+        <stop stopColor="#879FCA" />
+        <stop offset="1" stopColor="#BED4EC" />
       </linearGradient>
       <clipPath id="clip0_32_364">
         <rect width="30" height="25.7143" fill="white" />
@@ -377,9 +377,9 @@ export const goldMedal = (
         width="6.6395"
         height="9.36038"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -413,8 +413,8 @@ export const goldMedal = (
         y2="8.94389"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.2852" stop-color="#EFA716" />
-        <stop offset="0.8758" stop-color="#FFD757" />
+        <stop offset="0.2852" stopColor="#EFA716" />
+        <stop offset="0.8758" stopColor="#FFD757" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_32_308"
@@ -424,8 +424,8 @@ export const goldMedal = (
         y2="19.3858"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EFA716" />
-        <stop offset="1" stop-color="#FFD757" />
+        <stop stopColor="#EFA716" />
+        <stop offset="1" stopColor="#FFD757" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_32_308"
@@ -435,8 +435,8 @@ export const goldMedal = (
         y2="24.453"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFD757" />
-        <stop offset="1" stop-color="#EFA716" />
+        <stop stopColor="#FFD757" />
+        <stop offset="1" stopColor="#EFA716" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_32_308"
@@ -446,8 +446,8 @@ export const goldMedal = (
         y2="17.2159"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EFA716" />
-        <stop offset="1" stop-color="#FFD757" />
+        <stop stopColor="#EFA716" />
+        <stop offset="1" stopColor="#FFD757" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_32_308"
@@ -457,8 +457,8 @@ export const goldMedal = (
         y2="2.35269"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.1242" stop-color="#FFD757" />
-        <stop offset="0.7148" stop-color="#EFA716" />
+        <stop offset="0.1242" stopColor="#FFD757" />
+        <stop offset="0.7148" stopColor="#EFA716" />
       </linearGradient>
       <linearGradient
         id="paint5_linear_32_308"
@@ -468,8 +468,8 @@ export const goldMedal = (
         y2="4.82605"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.2852" stop-color="#EFA716" />
-        <stop offset="0.8758" stop-color="#FFD757" />
+        <stop offset="0.2852" stopColor="#EFA716" />
+        <stop offset="0.8758" stopColor="#FFD757" />
       </linearGradient>
       <linearGradient
         id="paint6_linear_32_308"
@@ -479,8 +479,8 @@ export const goldMedal = (
         y2="16.5778"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEF7A5" />
-        <stop offset="1" stop-color="#F1CD59" />
+        <stop stopColor="#FEF7A5" />
+        <stop offset="1" stopColor="#F1CD59" />
       </linearGradient>
       <linearGradient
         id="paint7_linear_32_308"
@@ -490,8 +490,8 @@ export const goldMedal = (
         y2="24.4341"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEF7A5" />
-        <stop offset="1" stop-color="#F1CD59" />
+        <stop stopColor="#FEF7A5" />
+        <stop offset="1" stopColor="#F1CD59" />
       </linearGradient>
       <linearGradient
         id="paint8_linear_32_308"
@@ -501,8 +501,8 @@ export const goldMedal = (
         y2="23.1356"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEF7A5" />
-        <stop offset="1" stop-color="#F1CD59" />
+        <stop stopColor="#FEF7A5" />
+        <stop offset="1" stopColor="#F1CD59" />
       </linearGradient>
       <linearGradient
         id="paint9_linear_32_308"
@@ -512,8 +512,8 @@ export const goldMedal = (
         y2="14.8237"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.2895" stop-color="#F1CD59" />
-        <stop offset="1" stop-color="#FEF7A5" />
+        <stop offset="0.2895" stopColor="#F1CD59" />
+        <stop offset="1" stopColor="#FEF7A5" />
       </linearGradient>
       <linearGradient
         id="paint10_linear_32_308"
@@ -523,8 +523,8 @@ export const goldMedal = (
         y2="2.16019"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.2261" stop-color="#F1CD59" />
-        <stop offset="1" stop-color="#FEF7A5" />
+        <stop offset="0.2261" stopColor="#F1CD59" />
+        <stop offset="1" stopColor="#FEF7A5" />
       </linearGradient>
       <linearGradient
         id="paint11_linear_32_308"
@@ -534,8 +534,8 @@ export const goldMedal = (
         y2="7.97531"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEF7A5" />
-        <stop offset="1" stop-color="#F1CD59" />
+        <stop stopColor="#FEF7A5" />
+        <stop offset="1" stopColor="#F1CD59" />
       </linearGradient>
       <linearGradient
         id="paint12_linear_32_308"
@@ -545,8 +545,8 @@ export const goldMedal = (
         y2="3.21729"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA517" />
-        <stop offset="1" stop-color="#FFCE42" />
+        <stop stopColor="#FFA517" />
+        <stop offset="1" stopColor="#FFCE42" />
       </linearGradient>
       <linearGradient
         id="paint13_linear_32_308"
@@ -556,8 +556,8 @@ export const goldMedal = (
         y2="5.4252"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.008" stop-color="#F8C200" />
-        <stop offset="1" stop-color="#F8D926" />
+        <stop offset="0.008" stopColor="#F8C200" />
+        <stop offset="1" stopColor="#F8D926" />
       </linearGradient>
       <linearGradient
         id="paint14_linear_32_308"
@@ -567,8 +567,8 @@ export const goldMedal = (
         y2="7.08113"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEDB33" />
-        <stop offset="1" stop-color="#FFF83D" />
+        <stop stopColor="#FEDB33" />
+        <stop offset="1" stopColor="#FFF83D" />
       </linearGradient>
     </defs>
   </svg>
@@ -656,9 +656,9 @@ export const bronzeMedal = (
         width="7.21014"
         height="9.63227"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -692,8 +692,8 @@ export const bronzeMedal = (
         y2="9.32058"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.3157" stop-color="#F2892A" />
-        <stop offset="0.5959" stop-color="#FFA750" />
+        <stop offset="0.3157" stopColor="#F2892A" />
+        <stop offset="0.5959" stopColor="#FFA750" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_32_386"
@@ -703,8 +703,8 @@ export const bronzeMedal = (
         y2="20.2834"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.3157" stop-color="#F2892A" />
-        <stop offset="0.5959" stop-color="#FFA750" />
+        <stop offset="0.3157" stopColor="#F2892A" />
+        <stop offset="0.5959" stopColor="#FFA750" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_32_386"
@@ -714,8 +714,8 @@ export const bronzeMedal = (
         y2="24.3682"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.4041" stop-color="#FFA750" />
-        <stop offset="0.6843" stop-color="#F2892A" />
+        <stop offset="0.4041" stopColor="#FFA750" />
+        <stop offset="0.6843" stopColor="#F2892A" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_32_386"
@@ -725,8 +725,8 @@ export const bronzeMedal = (
         y2="16.8544"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.3157" stop-color="#F2892A" />
-        <stop offset="0.8447" stop-color="#FFA750" />
+        <stop offset="0.3157" stopColor="#F2892A" />
+        <stop offset="0.8447" stopColor="#FFA750" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_32_386"
@@ -736,8 +736,8 @@ export const bronzeMedal = (
         y2="1.44318"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.4041" stop-color="#FFA750" />
-        <stop offset="0.6843" stop-color="#F2892A" />
+        <stop offset="0.4041" stopColor="#FFA750" />
+        <stop offset="0.6843" stopColor="#F2892A" />
       </linearGradient>
       <linearGradient
         id="paint5_linear_32_386"
@@ -747,8 +747,8 @@ export const bronzeMedal = (
         y2="4.00705"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.3157" stop-color="#F2892A" />
-        <stop offset="0.5959" stop-color="#FFA750" />
+        <stop offset="0.3157" stopColor="#F2892A" />
+        <stop offset="0.5959" stopColor="#FFA750" />
       </linearGradient>
       <linearGradient
         id="paint6_linear_32_386"
@@ -758,8 +758,8 @@ export const bronzeMedal = (
         y2="16.1929"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FAD979" />
-        <stop offset="1" stop-color="#FFC071" />
+        <stop stopColor="#FAD979" />
+        <stop offset="1" stopColor="#FFC071" />
       </linearGradient>
       <linearGradient
         id="paint7_linear_32_386"
@@ -769,8 +769,8 @@ export const bronzeMedal = (
         y2="24.3394"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FAD979" />
-        <stop offset="1" stop-color="#FFC071" />
+        <stop stopColor="#FAD979" />
+        <stop offset="1" stopColor="#FFC071" />
       </linearGradient>
       <linearGradient
         id="paint8_linear_32_386"
@@ -780,8 +780,8 @@ export const bronzeMedal = (
         y2="22.993"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FAD979" />
-        <stop offset="1" stop-color="#FFC071" />
+        <stop stopColor="#FAD979" />
+        <stop offset="1" stopColor="#FFC071" />
       </linearGradient>
       <linearGradient
         id="paint9_linear_32_386"
@@ -791,8 +791,8 @@ export const bronzeMedal = (
         y2="14.352"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FAD979" />
-        <stop offset="1" stop-color="#FFC071" />
+        <stop stopColor="#FAD979" />
+        <stop offset="1" stopColor="#FFC071" />
       </linearGradient>
       <linearGradient
         id="paint10_linear_32_386"
@@ -802,8 +802,8 @@ export const bronzeMedal = (
         y2="1.26284"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FAD979" />
-        <stop offset="1" stop-color="#FFC071" />
+        <stop stopColor="#FAD979" />
+        <stop offset="1" stopColor="#FFC071" />
       </linearGradient>
       <linearGradient
         id="paint11_linear_32_386"
@@ -813,8 +813,8 @@ export const bronzeMedal = (
         y2="2.57887"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFC071" />
-        <stop offset="1" stop-color="#FAD979" />
+        <stop stopColor="#FFC071" />
+        <stop offset="1" stopColor="#FAD979" />
       </linearGradient>
       <linearGradient
         id="paint12_linear_32_386"
@@ -824,8 +824,8 @@ export const bronzeMedal = (
         y2="2.33888"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FC7C00" />
-        <stop offset="1" stop-color="#FFAB57" />
+        <stop stopColor="#FC7C00" />
+        <stop offset="1" stopColor="#FFAB57" />
       </linearGradient>
       <linearGradient
         id="paint13_linear_32_386"
@@ -835,8 +835,8 @@ export const bronzeMedal = (
         y2="4.62834"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA955" />
-        <stop offset="1" stop-color="#FBC679" />
+        <stop stopColor="#FFA955" />
+        <stop offset="1" stopColor="#FBC679" />
       </linearGradient>
       <linearGradient
         id="paint14_linear_32_386"
@@ -846,8 +846,8 @@ export const bronzeMedal = (
         y2="6.34544"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFC275" />
-        <stop offset="1" stop-color="#FFD77C" />
+        <stop stopColor="#FFC275" />
+        <stop offset="1" stopColor="#FFD77C" />
       </linearGradient>
       <linearGradient
         id="paint15_linear_32_386"
@@ -857,8 +857,8 @@ export const bronzeMedal = (
         y2="9.82072"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FC7C00" />
-        <stop offset="1" stop-color="#FFAB57" />
+        <stop stopColor="#FC7C00" />
+        <stop offset="1" stopColor="#FFAB57" />
       </linearGradient>
     </defs>
   </svg>

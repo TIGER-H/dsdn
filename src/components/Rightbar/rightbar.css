@@ -3,7 +3,8 @@
 
   width: 20rem;
   /* width: 446px; */
-  height: 783px;
+  /* height: 783px; */
+  height: calc(100vh - 7.25rem);
 
   background: rgba(25, 30, 46, 0.8);
   border-radius: 17px;
@@ -75,7 +76,7 @@
   align-self: end;
 }
 
-.rightbarTopThreeItem:nth-child(2){
+.rightbarTopThreeItem:nth-child(2) {
   padding-top: 10px;
   align-self: flex-start;
 }
@@ -117,11 +118,11 @@
   color: #52c3e6;
 }
 
-.rightbarTopThreeItem{
+.rightbarTopThreeItem {
   position: relative;
 }
 
-.rightbarTop3Badge{
+.rightbarTop3Badge {
   position: absolute;
   top: 0;
   right: 0;

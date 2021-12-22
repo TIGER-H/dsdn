@@ -5,11 +5,13 @@ import "./header.css";
 const Header = () => {
   return (
     <div className="header">
-      <div className="header-logo">
-        <img src={logo} alt="dsdn logo" />
-        <p>DSDN</p>
+      <div className="headerContent">
+        <div className="header-logo">
+          <img src={logo} alt="dsdn logo" />
+          <p>DSDN</p>
+        </div>
+        <Searchbar />
       </div>
-      <Searchbar />
     </div>
   );
 };

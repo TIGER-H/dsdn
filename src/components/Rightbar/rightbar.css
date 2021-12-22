@@ -1,6 +1,7 @@
 .rightbar {
   margin-top: 6.25rem;
 
+  width: 20rem;
   /* width: 446px; */
   height: 783px;
 
@@ -11,7 +12,7 @@
 }
 
 .rightbarTabs {
-  margin-top: 42px;
+  margin-top: 1.5rem;
   line-height: 54px;
   text-align: center;
   color: white;

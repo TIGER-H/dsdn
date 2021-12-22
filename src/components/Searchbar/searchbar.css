@@ -5,7 +5,7 @@
 
 .search-input {
   /* width: 630px; */
-  flex-grow: 1;
+  flex-basis: 500px;
 
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
 }
 
 .search-input > input {
-  width: 100%;
+  /* width: 100%; */
   padding: 0.5rem;
   border: none;
   background: none;

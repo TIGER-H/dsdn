@@ -1,9 +1,9 @@
 import Avatar from "boring-avatars";
 import { useState } from "react";
-import "./post.css";
 import * as timeago from "timeago.js";
 import { useDispatch } from "react-redux";
 import { likePost, unlikePost } from "../../features/posts/postsSlice";
+import "./post.css";
 
 const icons = {
   heart: (
@@ -72,7 +72,8 @@ const icons = {
 };
 
 const Post = ({ post }) => {
-  const { username, content, createAt, numberOfLikes, comment } = post;
+  const { username, content, createAt, numberOfLikes, comment, attachment } =
+    post;
   const [isLiked, setIsLiked] = useState(false);
   const dispatch = useDispatch();
 
@@ -83,7 +84,10 @@ const Post = ({ post }) => {
       </div>
       <div className="postMain">
         <div className="postUsername">{username}</div>
-        <div className="postContent">{content}</div>
+        <div className="postContent">
+          {content}
+          {attachment && <img src={attachment} alt="not found" />}
+        </div>
         <div className="postTime">{timeago.format(createAt)}</div>
         <div className="postActions">
           <div

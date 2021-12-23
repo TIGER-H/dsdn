@@ -8,7 +8,7 @@ import icons from "./icons";
 import "./sidebar.css";
 
 const Sidebar = () => {
-  const [accountId, setAccountId] = useState();
+  const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
   const wallet = useNear();
   const dispatch = useDispatch();

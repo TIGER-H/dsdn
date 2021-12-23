@@ -7,6 +7,7 @@ import { v4 } from "uuid";
 
 export function ModalContainer({ setOpen, data, setData }) {
   const currentUser = useSelector((state) => state.user.username);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const dispatch = useDispatch();
   const [localData, setLocalData] = useState(data);
@@ -27,6 +28,8 @@ export function ModalContainer({ setOpen, data, setData }) {
         content: text,
         createAt: new Date().getTime(),
         numberOfLikes: 0,
+        comment: [],
+        attachment: selectedImage,
       })
     );
     close();
@@ -69,9 +72,21 @@ export function ModalContainer({ setOpen, data, setData }) {
               });
             }}
           ></textarea>
+
+          {selectedImage && (
+            <div className="modalImage">
+              <img src={selectedImage} alt="selectedImage" />
+              <button onClick={() => setSelectedImage(null)}>Remove</button>
+            </div>
+          )}
         </div>
+
         <div className="modalFooter">
-          <div className="modalAddMedia" onClick={() => {}}>
+          <label
+            htmlFor="add-media"
+            className="modalAddMedia"
+            onClick={() => {}}
+          >
             <svg
               t="1640245222739"
               viewBox="0 0 1024 1024"
@@ -87,7 +102,19 @@ export function ModalContainer({ setOpen, data, setData }) {
                 p-id="3140"
               ></path>
             </svg>
-          </div>
+            <input
+              type="file"
+              name="add-media"
+              id="add-media"
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={({ target }) => {
+                console.log(target.files[0]);
+                const image = target.files[0];
+                setSelectedImage(URL.createObjectURL(image));
+              }}
+            />
+          </label>
           <button className="modalBottomButton" onClick={submit}>
             Submit
           </button>
@@ -95,32 +122,5 @@ export function ModalContainer({ setOpen, data, setData }) {
       </div>
     </>,
     document.getElementById("app-modal")
-  );
-}
-
-// this is for test
-export function ModalTest(props) {
-  const [open, setOpen] = useState(false);
-  const [data, setData] = useState({ clicks: 0 });
-  return (
-    <div>
-      <div>Clicks: {data.clicks}</div>
-      <button
-        className="mainButton"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        OPEN MODAL
-      </button>
-      {open && (
-        <ModalContainer
-          {...props}
-          setOpen={setOpen}
-          data={data}
-          setData={setData}
-        />
-      )}
-    </div>
   );
 }

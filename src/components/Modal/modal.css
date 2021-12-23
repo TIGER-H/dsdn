@@ -20,7 +20,7 @@
   max-width: 600px;
   background-color: rgba(25, 30, 46, 0.95);
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
@@ -130,4 +130,9 @@
 .modalClose > svg {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.modalImage > img{
+  width: 50px;
+  aspect-ratio: 1;
 }

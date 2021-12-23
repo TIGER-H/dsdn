@@ -2,8 +2,13 @@ import search from "./search.svg";
 import btn1 from "./button-1.svg";
 import btn2 from "./button-2.svg";
 import "./searchbar.css";
+import { useState } from "react";
+import { ModalContainer } from "../Modal/Modal";
 
 const Searchbar = () => {
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState({ text: null });
+
   return (
     <div className="searchbar">
       <div className="search-input">
@@ -11,12 +16,21 @@ const Searchbar = () => {
         <input type="text" placeholder="Search inspiration" />
       </div>
       <div className="searchbar-buttons">
-        <div className="searchbar-button btn1">
+        {/* write post */}
+        <div
+          className="searchbar-button btn1"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
           <img src={btn1} alt="button 1" />
         </div>
         <div className="searchbar-button btn2">
           <img src={btn2} alt="button 2" />
         </div>
+        {open && (
+          <ModalContainer setOpen={setOpen} data={data} setData={setData} />
+        )}
       </div>
     </div>
   );

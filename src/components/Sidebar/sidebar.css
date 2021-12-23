@@ -5,7 +5,8 @@
   border-radius: 17px;
   color: white;
 
-  position: fixed;
+  position: sticky;
+  position: -webkit-sticky;
   height: calc(100vh - 7.25rem);
   width: 15rem;
   z-index: 99;

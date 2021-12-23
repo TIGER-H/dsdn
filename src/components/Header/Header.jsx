@@ -1,5 +1,4 @@
 import logo from "../../logo.svg";
-import { ModalExample } from "../Modal/Modal";
 import Searchbar from "../Searchbar";
 import "./header.css";
 
@@ -12,7 +11,6 @@ const Header = () => {
           <p>DSDN</p>
         </a>
         <Searchbar />
-        <ModalExample />
       </div>
     </div>
   );

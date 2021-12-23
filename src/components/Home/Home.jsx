@@ -8,15 +8,10 @@ const Home = () => {
   return (
     <div className="home">
       <Sidebar />
-      <SidebarPlaceholder />
       <Content />
       <Rightbar />
     </div>
   );
-};
-
-const SidebarPlaceholder = () => {
-  return <div className="sidebarPlaceholder" style={{ width: "15rem" }}></div>;
 };
 
 export default Home;

@@ -1,14 +1,17 @@
 import Avatar from "boring-avatars";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react/cjs/react.development";
+import { setUser } from "../../features/user/userSlice";
 import { useNear } from "../../hooks/useNear";
 import icons from "./icons";
 import "./sidebar.css";
 
 const Sidebar = () => {
   const [accountId, setAccountId] = useState();
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Guest");
   const wallet = useNear();
+  const dispatch = useDispatch();
 
   const signIn = () => {
     wallet.then((wallet) => {
@@ -20,12 +23,18 @@ const Sidebar = () => {
     wallet.then((wallet) => {
       wallet.signOut();
       setAccountId(null);
+      setUsername("Guest");
+      dispatch(setUser({ username: "Guest", accountId: null }));
     });
   };
 
   useEffect(() => {
     wallet.then((wallet) => {
-      setAccountId(wallet.getAccountId());
+      if (wallet.isSignedIn()) {
+        setAccountId(wallet.getAccountId());
+        setUsername("User");
+        dispatch(setUser({ accountId: wallet.getAccountId(), username:"User" }));
+      }
     });
   }, [accountId]);
 

@@ -1,8 +1,14 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addPost } from "../../features/posts/postsSlice";
 import "./modal.css";
+import { v4 } from "uuid";
 
 export function ModalContainer({ setOpen, data, setData }) {
+  const currentUser = useSelector((state) => state.user.username);
+
+  const dispatch = useDispatch();
   const [localData, setLocalData] = useState(data);
   const { text } = localData;
 
@@ -12,20 +18,28 @@ export function ModalContainer({ setOpen, data, setData }) {
 
   function submit() {
     setData({
-      text,
+      text: "",
     });
+    dispatch(
+      addPost({
+        id: v4(),
+        username: currentUser,
+        content: text,
+        createAt: new Date().getTime(),
+        numberOfLikes: 0,
+      })
+    );
     close();
   }
-  
+
   return ReactDOM.createPortal(
     <>
       <div className="modalShadow" onClick={close} />
       <div className="modal">
-        <div className="modalBanner">New Clip</div>
+        <div className="modalBanner">Post Your New Clip</div>
         <div className="modalClose" onClick={close}>
           <svg
             t="1640244753525"
-            class="icon"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +74,6 @@ export function ModalContainer({ setOpen, data, setData }) {
           <div className="modalAddMedia" onClick={() => {}}>
             <svg
               t="1640245222739"
-              class="icon"
               viewBox="0 0 1024 1024"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"

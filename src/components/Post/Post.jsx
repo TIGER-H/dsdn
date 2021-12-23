@@ -1,6 +1,9 @@
 import Avatar from "boring-avatars";
 import { useState } from "react";
 import "./post.css";
+import * as timeago from "timeago.js";
+import { useDispatch } from "react-redux";
+import { likePost, unlikePost } from "../../features/posts/postsSlice";
 
 const icons = {
   heart: (
@@ -68,14 +71,10 @@ const icons = {
   ),
 };
 
-const Post = ({
-  username,
-  content,
-  postTime,
-  numberOfLikes,
-  numberOfComments,
-}) => {
+const Post = ({ post }) => {
+  const { username, content, createAt, numberOfLikes, comment } = post;
   const [isLiked, setIsLiked] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div className="post">
@@ -83,26 +82,26 @@ const Post = ({
         <Avatar size={56} variant="beam" />
       </div>
       <div className="postMain">
-        <div className="postUsername">Username</div>
-        <div className="postContent">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          blanditiis, magnam aperiam, similique deleniti nemo, fugiat at culpa
-          corrupti inventore officia numquam soluta. Molestiae perspiciatis eum,
-          assumenda numquam saepe impedit!
-        </div>
-        <div className="postTime">just now</div>
+        <div className="postUsername">{username}</div>
+        <div className="postContent">{content}</div>
+        <div className="postTime">{timeago.format(createAt)}</div>
         <div className="postActions">
           <div
             className={`postAction ${isLiked ? "postAction--active" : ""}`}
-            onClick={() => setIsLiked(!isLiked)}
+            onClick={() => {
+              setIsLiked(!isLiked);
+              isLiked
+                ? dispatch(unlikePost(post.id))
+                : dispatch(likePost(post.id));
+            }}
             style={{ color: isLiked ? "#52C3E6" : "white" }}
           >
             {icons.heart}
-            <span>233</span>
+            <span>{numberOfLikes}</span>
           </div>
           <div className="postAction">
             {icons.comment}
-            <span>12</span>
+            <span>{comment?.length || 0}</span>
           </div>
           <div className="postAction">
             {icons.share}

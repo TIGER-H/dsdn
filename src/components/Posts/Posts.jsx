@@ -1,20 +1,13 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import Post from "../Post";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
+  const { posts } = useSelector((state) => state.posts);
   return (
     <div className="posts">
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {posts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
     </div>
   );
 };

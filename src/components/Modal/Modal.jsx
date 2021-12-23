@@ -5,15 +5,18 @@ import "./modal.css";
 export function ModalContainer({ setOpen, data, setData }) {
   const [localData, setLocalData] = useState(data);
   const { text } = localData;
+
   function close() {
     setOpen(false);
   }
+
   function submit() {
     setData({
       text,
     });
     close();
   }
+  
   return ReactDOM.createPortal(
     <>
       <div className="modalShadow" onClick={close} />

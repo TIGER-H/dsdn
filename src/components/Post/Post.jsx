@@ -68,7 +68,13 @@ const icons = {
   ),
 };
 
-const Post = () => {
+const Post = ({
+  username,
+  content,
+  postTime,
+  numberOfLikes,
+  numberOfComments,
+}) => {
   const [isLiked, setIsLiked] = useState(false);
 
   return (

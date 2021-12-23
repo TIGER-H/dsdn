@@ -7,7 +7,7 @@ import { ModalContainer } from "../Modal/Modal";
 
 const Searchbar = () => {
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState({ text: null });
+  const [data, setData] = useState({ text: "" });
 
   return (
     <div className="searchbar">

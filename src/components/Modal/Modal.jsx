@@ -2,6 +2,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../features/posts/postsSlice";
+import { imageUpload } from "../../service/imageUpload";
 import { useAddPostMutation } from "../../service/postService";
 import "./modal.css";
 
@@ -27,22 +28,25 @@ export function ModalContainer({ setOpen, data, setData }) {
     const image = target.files[0];
     setSelectedImage(URL.createObjectURL(image));
 
-    var formdata = new FormData();
-    formdata.append("image", target.files[0], "998-200x200.jpeg");
+    // var formdata = new FormData();
+    // formdata.append("image", target.files[0], "998-200x200.jpeg");
 
-    var requestOptions = {
-      method: "POST",
-      body: formdata,
-      redirect: "follow",
-    };
+    // var requestOptions = {
+    //   method: "POST",
+    //   body: formdata,
+    //   redirect: "follow",
+    // };
 
-    fetch("image/uploadImage", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        setImageUrl(result.data.imageUrl);
-      })
-      .catch((error) => console.log("error", error));
-
+    // fetch("image/uploadImage", requestOptions)
+    //   .then((response) => response.json())
+    //   .then((result) => {
+    //     setImageUrl(result.data.imageUrl);
+    //   })
+    //   .catch((error) => console.log("error", error));
+    imageUpload(image).then((url) => {
+      console.log(url)
+      setImageUrl(url);
+    });
     // uploadImage(image);
   };
 
@@ -61,6 +65,8 @@ export function ModalContainer({ setOpen, data, setData }) {
       imageUrl,
       uId,
     });
+
+    console.log(result);
 
     dispatch(
       addPost({

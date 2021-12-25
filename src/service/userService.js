@@ -12,13 +12,6 @@ export const userApi = createApi({
         };
       },
     }),
-    getRandomUser: builder.query({
-      query: () => {
-        return {
-          url: `/`,
-        };
-      },
-    }),
     registerUser: builder.mutation({
       query: (user) => {
         return {

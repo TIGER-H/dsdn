@@ -20,7 +20,7 @@
   max-width: 600px;
   background-color: rgba(25, 30, 46, 0.95);
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
@@ -72,11 +72,12 @@
   border: transparent;
   padding: 0.5rem;
   opacity: 0.6;
-  transition: opacity 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .modalBottomButton:hover {
   opacity: 1;
+  outline: 1px solid #52c3e6;
 }
 
 .modalAddMedia {

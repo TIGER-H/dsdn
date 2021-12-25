@@ -12,7 +12,8 @@
   z-index: 99;
   top: 6.25rem;
 
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
+  padding-bottom: 1rem;
   /* temporary css for debug */
   /* width: 312px; */
   /* height: 783px; */
@@ -119,4 +120,42 @@
 
 .sidebarBottomItem:hover > svg > path {
   fill-opacity: 1;
+}
+
+/* guest login */
+.guestLogin {
+  height: 134px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(25, 30, 46, 0.8);
+  border-radius: 17px 17px 0 0;
+  padding: 1rem;
+}
+
+.guestLoginRight:hover {
+  cursor: pointer;
+}
+
+.guestLogin > svg {
+  align-self: center;
+}
+
+.guestLoginRight {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+}
+
+.loginText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+}
+
+.loginDesc {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

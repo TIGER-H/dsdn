@@ -2,16 +2,49 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../features/posts/postsSlice";
+import { useAddPostMutation } from "../../service/postService";
 import "./modal.css";
-import { v4 } from "uuid";
 
 export function ModalContainer({ setOpen, data, setData }) {
-  const currentUser = useSelector((state) => state.user.username);
+  const {
+    username: currentUser,
+    uId,
+    accountId: Address,
+  } = useSelector((state) => state.user);
+  console.log(currentUser, uId);
+
   const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
 
   const dispatch = useDispatch();
+  const [addPostMutation, result] = useAddPostMutation();
+
   const [localData, setLocalData] = useState(data);
   const { text } = localData;
+
+  const handleUpload = ({ target }) => {
+    console.log(target.files[0]);
+    const image = target.files[0];
+    setSelectedImage(URL.createObjectURL(image));
+
+    var formdata = new FormData();
+    formdata.append("image", target.files[0], "998-200x200.jpeg");
+
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    fetch("image/uploadImage", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setImageUrl(result.data.imageUrl);
+      })
+      .catch((error) => console.log("error", error));
+
+    // uploadImage(image);
+  };
 
   function close() {
     setOpen(false);
@@ -21,15 +54,21 @@ export function ModalContainer({ setOpen, data, setData }) {
     setData({
       text: "",
     });
+
+    addPostMutation({
+      Address,
+      blogText: text,
+      imageUrl,
+      uId,
+    });
+
     dispatch(
       addPost({
-        id: v4(),
-        username: currentUser,
-        content: text,
-        createAt: new Date().getTime(),
-        numberOfLikes: 0,
-        comment: [],
-        attachment: selectedImage,
+        Address,
+        blogText: text,
+        imageUrl,
+        uId,
+        creator: Address,
       })
     );
     close();
@@ -71,7 +110,7 @@ export function ModalContainer({ setOpen, data, setData }) {
                 text: target.value,
               });
             }}
-          ></textarea>
+          />
 
           {selectedImage && (
             <div className="modalImage">
@@ -108,11 +147,7 @@ export function ModalContainer({ setOpen, data, setData }) {
               id="add-media"
               accept="image/*"
               style={{ display: "none" }}
-              onChange={({ target }) => {
-                console.log(target.files[0]);
-                const image = target.files[0];
-                setSelectedImage(URL.createObjectURL(image));
-              }}
+              onChange={handleUpload}
             />
           </label>
           <button className="modalBottomButton" onClick={submit}>

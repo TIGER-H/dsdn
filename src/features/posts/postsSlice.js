@@ -1,56 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  posts: [
-    {
-      id: 1,
-      username: "johndoe",
-      avatar:"",
-      content:
-        "lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quisquam. ",
-      numberOfLikes: 0,
-      comments: [],
-      createAt: "2021-12-23 19:23:12",
-    },
-    {
-      id: 2,
-      username: "moleDAO",
-      content: "Hello World!",
-      numberOfLikes: 0,
-      comments: [],
-      createAt: "2021-12-23 15:00:00",
-    },
-    // {
-    //   id: 3,
-    //   username: "moleDAO",
-    //   content: "Hello World!",
-    //   numberOfLikes: 0,
-    //   comments: [],
-    //   createAt: "2021-12-23 15:00:00",
-    // },
-    // {
-    //   id: 4,
-    //   username: "moleDAO",
-    //   content: "Hello World!",
-    //   numberOfLikes: 0,
-    //   comments: [],
-    //   createAt: "2021-12-23 15:00:00",
-    // },
-    // {
-    //   id: 5,
-    //   username: "moleDAO",
-    //   content: "Hello World!",
-    //   numberOfLikes: 0,
-    //   comments: [],
-    //   createAt: "2021-12-23 15:00:00",
-    // },
-  ],
+  posts: [],
 };
 
 export const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
+    setPosts: (state, action) => {
+      state.posts = action.payload;
+    },
     addPost: (state, action) => {
       state.posts.push(action.payload);
     },
@@ -65,6 +25,6 @@ export const postsSlice = createSlice({
   },
 });
 
-export const { addPost, likePost, unlikePost } = postsSlice.actions;
+export const { setPosts, addPost, likePost, unlikePost } = postsSlice.actions;
 
 export default postsSlice.reducer;

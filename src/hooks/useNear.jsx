@@ -18,5 +18,17 @@ export const useNear = async () => {
 
   const wallet = new WalletConnection(near);
 
+  const contract = new nearAPI.Contract(
+    wallet.account(), // the account object that is connecting
+    "nft.cklzero.testnet",
+    {
+      viewMethods: ["nft_token"],
+    }
+  );
+  // console.log(contract);
+
+  const res = await contract.nft_token({ "token_id": "token-1" });
+  // console.log(res);
+
   return wallet;
 };

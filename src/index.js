@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { Buffer } from 'buffer'
+window.Buffer = Buffer; 
 
 ReactDOM.render(
   <Provider store={store}>

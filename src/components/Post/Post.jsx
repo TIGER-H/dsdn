@@ -72,8 +72,14 @@ const icons = {
 };
 
 const Post = ({ post }) => {
-  const { username, content, createAt, numberOfLikes, comment, attachment } =
-    post;
+  const {
+    creator: username,
+    blogText: content,
+    createTime: createAt,
+    numberOfLikes,
+    comment,
+    imageUrl: attachment,
+  } = post;
   const [isLiked, setIsLiked] = useState(false);
   const dispatch = useDispatch();
 
@@ -86,7 +92,9 @@ const Post = ({ post }) => {
         <div className="postUsername">{username}</div>
         <div className="postContent">
           {content}
-          {attachment && <img src={attachment} alt="not found" />}
+          {attachment && (
+            <img src={attachment} alt="not found" className="postImage" />
+          )}
         </div>
         <div className="postTime">{timeago.format(createAt)}</div>
         <div className="postActions">

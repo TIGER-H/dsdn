@@ -101,7 +101,7 @@ const Post = ({ post }) => {
   return (
     <div className="post">
       <div className="postAvatar">
-        <Avatar size={56} variant="beam" />
+        <Avatar size={56} variant="beam" name={creator} />
       </div>
       <div className="postMain">
         <div className="postUsername">{creator}</div>

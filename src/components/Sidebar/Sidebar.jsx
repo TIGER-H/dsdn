@@ -1,8 +1,12 @@
 import Avatar from "boring-avatars";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import {
+  connectWallet,
+  getCurrentWalletConnected,
+} from "../../contracts/interact";
 import { setUser } from "../../features/user/userSlice";
-import { useGetUserByAddressQuery } from "../../service/userService";
+import { getUser, useRegisterUserMutation } from "../../service/userService";
 import icons from "./icons";
 import "./sidebar.css";
 
@@ -10,9 +14,9 @@ const Sidebar = () => {
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
 
-  const address = "fake";
-  const { data } = useGetUserByAddressQuery(address);
-  console.log(data);
+  // const { data } = useGetUserByAddressQuery(address);
+  const [registUser, result] = useRegisterUserMutation();
+  // console.log(data);
 
   const dispatch = useDispatch();
 
@@ -43,18 +47,45 @@ const Sidebar = () => {
   //   });
   // }, [accountId]);
 
-  const signIn = () => {
-    //
-    if (data) {
+  const signIn = async () => {
+    // connect to metamask
+    const { address } = await connectWallet();
+
+    // getUser by address
+    const { code, data: accountData } = await getUser(address);
+
+    if (code === 5005) {
+      // 用户不存在
+      const { data: registerData } = await registUser({
+        address,
+      });
+      // data: {code, data : {id}, message}
+
+      if (registerData.code === 0) {
+        console.log("注册成功");
+        dispatch(
+          setUser({
+            username: "New User",
+            accountId: address,
+            uId: registerData.data.id,
+          })
+        );
+
+        setAccountId(address);
+        setUsername("New User");
+      }
+    } else {
+      // user exists!
+      console.log("loging in ");
       dispatch(
         setUser({
-          username: "default",
-          accountId: address,
-          uId: data.data.id,
+          username: "Hello Web3",
+          accountId: accountData.address,
+          uId: accountData.id,
         })
       );
-      setAccountId(address);
-      setUsername("default");
+      setAccountId(accountData.address);
+      setUsername("Hello Web3");
     }
   };
 
@@ -62,16 +93,23 @@ const Sidebar = () => {
     dispatch(setUser({ username: "Guest", accountId: null, uId: null }));
   };
 
+  useEffect(() => {
+    getCurrentWalletConnected().then(({ address }) => {
+      if (address) signIn();
+    });
+  });
+
   return (
     <div className="sidebar">
       {accountId ? (
         <div className="sidebarUpper">
           <div className="avatarUser">
-            <Avatar size={70} name="1243" variant="beam" />
+            <Avatar size={70} name={username} variant="beam" />
           </div>
-          <span className="username">{username || "One Piece"}</span>
+          <span className="username">{username}</span>
           <span className="userAddr">
-            {accountId || "0x4121eb...70cad37a"} {icons.copy}
+            <div className="userAddrText">{accountId}</div>
+            <div className="copyUserAddr"> {icons.copy}</div>
           </span>
           <div className="userBadges">
             {icons.medal}

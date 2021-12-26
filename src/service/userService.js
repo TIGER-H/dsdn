@@ -1,4 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import axios from "axios";
+
+export const getUser = async (address) => {
+  const res = await axios.get("/user/getUser", {
+    params: {
+      address,
+    },
+  });
+  return res.data;
+};
 
 export const userApi = createApi({
   reducerPath: "userApi",

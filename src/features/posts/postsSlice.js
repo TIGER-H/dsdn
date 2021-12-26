@@ -16,13 +16,14 @@ export const postsSlice = createSlice({
     },
     likePost: (state, action) => {
       const post = state.posts.find((post) => post.id === action.payload);
-      post.numberOfLikes++;
+      post.likeNum++;
     },
     unlikePost: (state, action) => {
       const post = state.posts.find((post) => post.id === action.payload);
-      post.numberOfLikes--;
+      post.likeNum--;
     },
   },
+  extraReducers: {},
 });
 
 export const { setPosts, addPost, likePost, unlikePost } = postsSlice.actions;

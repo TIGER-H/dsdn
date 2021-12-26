@@ -1,9 +1,11 @@
 import Avatar from "boring-avatars";
 import { useState } from "react";
 import * as timeago from "timeago.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { likePost, unlikePost } from "../../features/posts/postsSlice";
 import "./post.css";
+import { likePostAction } from "../../service/actionService";
+import { useEffect } from "react";
 
 const icons = {
   heart: (
@@ -72,16 +74,29 @@ const icons = {
 };
 
 const Post = ({ post }) => {
-  const {
-    creator: username,
-    blogText: content,
-    createTime: createAt,
-    numberOfLikes,
-    comment,
-    imageUrl: attachment,
-  } = post;
+  const { creator, blogText, createTime, likeNum, comment, imageUrl } = post;
+
+  const { uId } = useSelector((state) => state.user);
   const [isLiked, setIsLiked] = useState(false);
   const dispatch = useDispatch();
+
+  const handleLikeAction = () => {
+    // check if isliked?
+
+    if (isLiked) {
+      likePostAction(post.id, uId, 0);
+      dispatch(unlikePost(post.id));
+      setIsLiked(false);
+    } else {
+      likePostAction(post.id, uId, 1);
+      dispatch(likePost(post.id));
+      setIsLiked(true);
+    }
+  };
+
+  useEffect(() => {
+    // check if isliked?
+  }, []);
 
   return (
     <div className="post">
@@ -89,27 +104,22 @@ const Post = ({ post }) => {
         <Avatar size={56} variant="beam" />
       </div>
       <div className="postMain">
-        <div className="postUsername">{username}</div>
+        <div className="postUsername">{creator}</div>
         <div className="postContent">
-          {content}
-          {attachment && (
-            <img src={attachment} alt="not found" className="postImage" />
+          {blogText}
+          {imageUrl && (
+            <img src={imageUrl} alt="not found" className="postImage" />
           )}
         </div>
-        <div className="postTime">{timeago.format(createAt)}</div>
+        <div className="postTime">{timeago.format(createTime)}</div>
         <div className="postActions">
           <div
             className={`postAction ${isLiked ? "postAction--active" : ""}`}
-            onClick={() => {
-              setIsLiked(!isLiked);
-              isLiked
-                ? dispatch(unlikePost(post.id))
-                : dispatch(likePost(post.id));
-            }}
+            onClick={handleLikeAction}
             style={{ color: isLiked ? "#52C3E6" : "white" }}
           >
             {icons.heart}
-            <span>{numberOfLikes}</span>
+            <span>{likeNum}</span>
           </div>
           <div className="postAction">
             {icons.comment}

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../features/posts/postsSlice";
 import { imageUpload } from "../../service/imageUpload";
-import { useAddPostMutation } from "../../service/postService";
+import { addBlog } from "../../service/postService";
 import "./modal.css";
 
 export function ModalContainer({ setOpen, data, setData }) {
@@ -12,13 +12,11 @@ export function ModalContainer({ setOpen, data, setData }) {
     uId,
     accountId: Address,
   } = useSelector((state) => state.user);
-  console.log(currentUser, uId);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
   const dispatch = useDispatch();
-  const [addPostMutation, result] = useAddPostMutation();
 
   const [localData, setLocalData] = useState(data);
   const { text } = localData;
@@ -28,23 +26,8 @@ export function ModalContainer({ setOpen, data, setData }) {
     const image = target.files[0];
     setSelectedImage(URL.createObjectURL(image));
 
-    // var formdata = new FormData();
-    // formdata.append("image", target.files[0], "998-200x200.jpeg");
-
-    // var requestOptions = {
-    //   method: "POST",
-    //   body: formdata,
-    //   redirect: "follow",
-    // };
-
-    // fetch("image/uploadImage", requestOptions)
-    //   .then((response) => response.json())
-    //   .then((result) => {
-    //     setImageUrl(result.data.imageUrl);
-    //   })
-    //   .catch((error) => console.log("error", error));
     imageUpload(image).then((url) => {
-      console.log(url)
+      console.log(url);
       setImageUrl(url);
     });
     // uploadImage(image);
@@ -54,29 +37,21 @@ export function ModalContainer({ setOpen, data, setData }) {
     setOpen(false);
   }
 
-  function submit() {
+  async function submit() {
     setData({
       text: "",
     });
 
-    addPostMutation({
+    addBlog({
       Address,
       blogText: text,
       imageUrl,
       uId,
+    }).then((res) => {
+      console.log(res[0]);
+      dispatch(addPost(res[0]));
     });
 
-    console.log(result);
-
-    dispatch(
-      addPost({
-        Address,
-        blogText: text,
-        imageUrl,
-        uId,
-        creator: Address,
-      })
-    );
     close();
   }
 

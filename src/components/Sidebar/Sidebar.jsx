@@ -17,6 +17,7 @@ import {
   AiOutlineCopy,
 } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [accountId, setAccountId] = useState("");
@@ -111,10 +112,12 @@ const Sidebar = () => {
     <div className="sidebar">
       {accountId ? (
         <div className="sidebarUpper">
-          <div className="avatarUser">
+          <Link to={`user/${accountId}`} className="avatarUser">
             <Avatar size={70} name={accountId} variant="beam" />
-          </div>
-          <span className="username">{username}</span>
+          </Link>
+          <Link to={`user/${accountId}`} className="username">
+            {username}
+          </Link>
           <span className="userAddr">
             <div className="userAddrText">{accountId}</div>
             <div className="copyUserAddr">

@@ -10,6 +10,14 @@ import { getUser, useRegisterUserMutation } from "../../service/userService";
 import icons from "./icons";
 import "./sidebar.css";
 
+import { FaRegCalendarAlt, FaChevronRight } from "react-icons/fa";
+import {
+  AiOutlineSetting,
+  AiOutlineCreditCard,
+  AiOutlineCopy,
+} from "react-icons/ai";
+import { BsPeople } from "react-icons/bs";
+
 const Sidebar = () => {
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
@@ -104,12 +112,14 @@ const Sidebar = () => {
       {accountId ? (
         <div className="sidebarUpper">
           <div className="avatarUser">
-            <Avatar size={70} name={username} variant="beam" />
+            <Avatar size={70} name={accountId} variant="beam" />
           </div>
           <span className="username">{username}</span>
           <span className="userAddr">
             <div className="userAddrText">{accountId}</div>
-            <div className="copyUserAddr"> {icons.copy}</div>
+            <div className="copyUserAddr">
+              <AiOutlineCopy />
+            </div>
           </span>
           <div className="userBadges">
             {icons.medal}
@@ -120,9 +130,9 @@ const Sidebar = () => {
         </div>
       ) : (
         <div className="guestLogin" onClick={signIn}>
-          <Avatar size={45} name="1243" variant="beam" />
+          <Avatar size={45} name="Login" variant="beam" />
           <div className="guestLoginRight">
-            <span className="loginText">Login {icons.loginArr}</span>
+            <span className="loginText">Login {<FaChevronRight />}</span>
             <span className="loginDesc">Login with your wallet</span>
           </div>
         </div>
@@ -131,25 +141,25 @@ const Sidebar = () => {
         <ul>
           <li>
             <div className="sidebarBottomItem">
-              {icons.calander}
+              <BsPeople />
               <span>Communicate</span>
             </div>
           </li>
           <li>
             <div className="sidebarBottomItem">
-              {icons.communication}
+              <FaRegCalendarAlt />
               <span>History</span>
             </div>
           </li>
           <li>
             <div className="sidebarBottomItem" onClick={signOut}>
-              {icons.settings}
+              <AiOutlineSetting />
               <span>Account Setting</span>
             </div>
           </li>
           <li>
             <div className="sidebarBottomItem" onClick={signIn}>
-              {icons.wallet}
+              <AiOutlineCreditCard />
               <span>Wallet</span>
             </div>
           </li>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { loadContract, mintNFT } from "../../contracts/interact";
+import { pinJSONToIPFS } from "../../contracts/pinata";
 import { addPost } from "../../features/posts/postsSlice";
 import { imageUpload } from "../../service/imageUpload";
 import { addBlog } from "../../service/postService";
@@ -12,6 +14,8 @@ export function ModalContainer({ setOpen, data, setData }) {
     uId,
     accountId: Address,
   } = useSelector((state) => state.user);
+
+  const [spin, setSpin] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -38,19 +42,35 @@ export function ModalContainer({ setOpen, data, setData }) {
   }
 
   async function submit() {
+    setSpin(true);
     setData({
       text: "",
     });
 
-    addBlog({
+    const res = await addBlog({
       Address,
       blogText: text,
       imageUrl,
       uId,
-    }).then((res) => {
-      console.log(res[0]);
-      dispatch(addPost(res[0]));
     });
+    console.log(res[0]);
+
+    const pinataResponse = await pinJSONToIPFS(res[0]);
+    if (!pinataResponse.success) {
+      return {
+        success: false,
+        status: "😢 Something went wrong while uploading your tokenURI.",
+      };
+    }
+    console.log(pinataResponse);
+
+    const contract = await loadContract();
+
+    const tokenURI = pinataResponse.pinataUrl;
+
+    await mintNFT(tokenURI, contract, Address);
+
+    dispatch(addPost(res[0]));
 
     close();
   }
@@ -132,7 +152,7 @@ export function ModalContainer({ setOpen, data, setData }) {
             />
           </label>
           <button className="modalBottomButton" onClick={submit}>
-            Submit
+            {spin ? "Submitting" : "Submit"}
           </button>
         </div>
       </div>

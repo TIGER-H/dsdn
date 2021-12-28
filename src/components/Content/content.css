@@ -1,5 +1,103 @@
-.content{
+.content {
   width: 38.375rem;
   margin-top: 6.25rem;
   flex: 1;
+}
+
+.userInfoShare {
+  background: rgba(25, 30, 46, 0.8);
+  border-radius: 17px;
+
+  height: 160px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+}
+
+.userInfoShareUpper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfoShareUpperRight {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.userInfoShareUpper > span {
+  font-size: 1.1rem;
+}
+
+.userInfoShareUpperRight {
+  color: #52c3e6;
+}
+
+.userInfoShareBottom {
+  display: flex;
+}
+
+.userInfoShareBL {
+  margin: 1rem;
+}
+
+.userInfoShareBR {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.userInfoShareBR textarea {
+  flex: 1;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 0;
+  resize: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.userInfoShareBR textarea:focus,
+.userInfoShareBR textarea:hover {
+  outline: 1px solid #fff;
+}
+
+.userInfoSBRB {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfoActions {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: flex;
+}
+
+.userInfoActions li > * {
+  color: #52c3e6;
+  font-size: 1.5rem;
+  margin-right: 2rem;
+}
+.userInfoActions li > *:hover {
+  cursor: pointer;
+}
+
+.userInfoShareButton {
+  border: 0;
+  text-align: center;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  padding: 5px;
+  color: white;
+  background: linear-gradient(270deg, #4faac6 2.45%, #2c6bce 100%);
+}
+
+.userInfoShareButton:hover {
+  cursor: pointer;
 }

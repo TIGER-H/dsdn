@@ -54,20 +54,18 @@
 }
 
 .postAction {
+  font-size: 1rem;
   display: flex;
   align-items: center;
   gap: 10px;
   flex-basis: 4rem;
 }
 
-.postAction.postAction--active > svg > path {
-  fillOpacity: 1;
-  fill: #52c3e6;
+.postAction > *:first-child{
+  font-size: 1.5rem;
 }
-
-.postAction > svg:hover > path {
-  fillOpacity: 1;
-  fill: #52c3e6;
+.postAction > *:first-child:hover{
+  cursor: pointer;
 }
 
 .postImage {

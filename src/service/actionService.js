@@ -8,4 +8,5 @@ export const likePostAction = async (blogId, uId, like) => {
       like,
     },
   });
+  return data;
 };

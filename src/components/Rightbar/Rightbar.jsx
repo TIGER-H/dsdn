@@ -62,13 +62,13 @@ const Rightbar = () => {
           <span className="rightbarTopElseName">somebody</span>
           <span className="rightbarTopElseValue">$ 2.95m</span>
         </li>
-        <li className="rightbarTopElseItem">
+        {/* <li className="rightbarTopElseItem">
           <span className="rightbarTopElseRank">8</span>
 
           <Avatar size={54} name="top4" variant="beam" />
           <span className="rightbarTopElseName">somebody</span>
           <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

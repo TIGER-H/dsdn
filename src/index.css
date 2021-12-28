@@ -3,7 +3,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  margin: 0;
+  padding: 0;
+
   background-color: #09021d;
+  background-image: url(images/bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 code {
@@ -33,8 +39,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -73,9 +79,9 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -86,12 +92,12 @@ select {
   }
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 a:active,
 a:hover,
-a:visited{
+a:visited {
   text-decoration: none;
 }

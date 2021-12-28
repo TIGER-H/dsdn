@@ -125,13 +125,10 @@
   cursor: pointer;
 }
 
-.sidebarBottomItem > svg {
+.sidebarBottomItem > *:first-child {
+  font-size: 20px;
   margin-left: 1rem;
   margin-right: 1rem;
-}
-
-.sidebarBottomItem:hover > svg > path {
-  fill-opacity: 1;
 }
 
 /* guest login */
@@ -146,10 +143,7 @@
 
 .guestLoginRight:hover {
   cursor: pointer;
-}
-
-.guestLogin > svg {
-  align-self: center;
+  opacity: .8;
 }
 
 .guestLoginRight {
@@ -162,7 +156,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.loginText > *:last-child{
+  opacity: .8;
 }
 
 .loginDesc {

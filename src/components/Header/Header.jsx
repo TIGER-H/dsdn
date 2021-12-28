@@ -1,4 +1,5 @@
-import logo from "../../logo.svg";
+import logo from "../../images/logo.svg";
+import logoText from "../../images/logo-text.svg";
 import Searchbar from "../Searchbar";
 import "./header.css";
 
@@ -8,7 +9,7 @@ const Header = () => {
       <div className="headerContent">
         <a className="header-logo" href="/">
           <img src={logo} alt="dsdn logo" />
-          <p>DSDN</p>
+          <img src={logoText} alt="dsdn logotext" />
         </a>
         <Searchbar />
       </div>

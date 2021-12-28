@@ -4,6 +4,7 @@ import btn2 from "./button-2.svg";
 import "./searchbar.css";
 import { useState } from "react";
 import { ModalContainer } from "../Modal/Modal";
+import { MdOutlineSearch } from "react-icons/md";
 
 const Searchbar = () => {
   const [open, setOpen] = useState(false);
@@ -12,7 +13,8 @@ const Searchbar = () => {
   return (
     <div className="searchbar">
       <div className="search-input">
-        <img src={search} alt="search icon" />
+        {/* <img src={search} alt="search icon" /> */}
+        <MdOutlineSearch />
         <input type="text" placeholder="Search inspiration" />
       </div>
       <div className="searchbar-buttons">

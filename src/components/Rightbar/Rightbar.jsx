@@ -1,10 +1,18 @@
+import axios from "axios";
 import Avatar from "boring-avatars";
-import { bronzeMedal, goldMedal, silverMedal } from "."
+import { useEffect, useState } from "react";
+import { bronzeMedal, goldMedal, silverMedal } from ".";
+import { MdFavoriteBorder } from "react-icons/md";
 
 import "./rightbar.css";
 const Rightbar = () => {
-  
+  const [rankList, setRankList] = useState([]);
 
+  useEffect(() => {
+    axios.get("/ranklist/likeList/?num=15").then((res) => {
+      setRankList(res.data.data);
+    });
+  }, []);
 
   return (
     <div className="rightbar">
@@ -14,99 +22,54 @@ const Rightbar = () => {
       </div>
       <div className="rightbarTopThree">
         <div className="rightbarTopThreeItem">
-          <Avatar size={80} name="top1" variant="beam" />
+          <Avatar size={80} name="top2" variant="beam" />
           <div className="rightbarTop3Badge">{silverMedal}</div>
-          <div className="rightbarTopThreeItemName">Rick and ...</div>
-          <div className="rightbarTopThreeItemValue">$ 3.87m</div>
+          <div className="rightbarTopThreeItemName">
+            {rankList[1]?.nickName || "top2"}
+          </div>
+          <div className="rightbarTopThreeItemValue">
+            {<MdFavoriteBorder />}
+            {rankList[1]?.num || 0}
+          </div>
         </div>
         <div className="rightbarTopThreeItem">
-          <Avatar size={80} name="top2" variant="beam" />
+          <Avatar size={80} name="top1" variant="beam" />
           <div className="rightbarTop3Badge">{goldMedal}</div>
-          <div className="rightbarTopThreeItemName">some bd</div>
-          <div className="rightbarTopThreeItemValue">$ 3.87m</div>
+          <div className="rightbarTopThreeItemName">
+            {rankList[0]?.nickName || "top1"}
+          </div>
+          <div className="rightbarTopThreeItemValue">
+            {<MdFavoriteBorder />}
+            {rankList[0]?.num || 0}
+          </div>
         </div>
         <div className="rightbarTopThreeItem">
           <div className="rightbarTop3Badge">{bronzeMedal}</div>
           <Avatar size={80} name="top3" variant="beam" />
-          <div className="rightbarTopThreeItemName">asdsacax</div>
-          <div className="rightbarTopThreeItemValue">$ 3.87m</div>
+          <div className="rightbarTopThreeItemName">
+            {rankList[2]?.nickName || "TOP3"}
+          </div>
+          <div className="rightbarTopThreeItemValue">
+            {<MdFavoriteBorder />}
+            {rankList[2]?.num || 0}
+          </div>
         </div>
       </div>
       <ul className="rightbarTopElse">
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">4</span>
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">5</span>
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">5</span>
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">6</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">7</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">8</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">8</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">8</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">8</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">8</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
-        <li className="rightbarTopElseItem">
-          <span className="rightbarTopElseRank">8</span>
-
-          <Avatar size={54} name="top4" variant="beam" />
-          <span className="rightbarTopElseName">somebody</span>
-          <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li>
+        {rankList.slice(3).map((item, index) => (
+          <li className="rightbarTopElseItem" key={index}>
+            <span className="rightbarTopElseRank">{index + 4}</span>
+            {item?.imageUrl ? (
+              <img src={item.imageUrl} alt="not found" />
+            ) : (
+              <Avatar size={54} name={`top${index + 4}`} variant="beam" />
+            )}
+            <span className="rightbarTopElseName">
+              {item?.nickName || `top ${index + 4}`}
+            </span>
+            <span className="rightbarTopElseValue">{item?.num || 0}</span>
+          </li>
+        ))}
       </ul>
     </div>
   );

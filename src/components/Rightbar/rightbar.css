@@ -66,6 +66,7 @@
 }
 
 .rightbarTopThree {
+  width: 100%;
   height: 280px;
   display: flex;
   align-items: center;
@@ -75,9 +76,13 @@
   padding-top: 1rem;
 }
 
+.rightbarTopThreeItemName{
+  text-overflow: ellipsis;
+}
+
 .rightbarTopThreeItem:nth-child(1),
 .rightbarTopThreeItem:nth-child(3) {
-  align-self: end;
+  align-self: flex-end;
 }
 
 .rightbarTopThreeItem:nth-child(2) {
@@ -87,8 +92,11 @@
 
 .rightbarTopThreeItemValue {
   color: #52c3e6;
-  font-size: 14px;
-  text-align: center;
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .rightbarTopElse {
@@ -128,6 +136,10 @@
 
 .rightbarTopThreeItem {
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rightbarTop3Badge {

@@ -11,6 +11,7 @@ import {
   MdChatBubbleOutline,
   MdShare,
 } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
   const { creator, blogText, createTime, likeNum, comment, imageUrl } = post;
@@ -37,15 +38,15 @@ const Post = ({ post }) => {
 
   return (
     <div className="post">
-      <div className="postAvatar">
+      <Link className="postAvatar" to={`user/${creator}`}>
         <Avatar size={56} variant="beam" name={creator} />
-      </div>
+      </Link>
       <div className="postMain">
         <div className="postUsername">{creator}</div>
         <div className="postContent">
           {blogText}
           {imageUrl && (
-            <img src={imageUrl} alt="not found" className="postImage" />
+            <img src={imageUrl} alt="image not found" className="postImage" />
           )}
         </div>
         <div className="postTime">{timeago.format(createTime)}</div>

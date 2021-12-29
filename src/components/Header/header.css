@@ -13,8 +13,7 @@
   height: 6.25rem;
   width: 100%;
 
-  background-color: transparent;
-  backdrop-filter: blur(1rem);
+  background-image: url(../../images/bg.jpg);
 }
 
 .headerContent {

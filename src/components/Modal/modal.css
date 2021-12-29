@@ -71,7 +71,7 @@
   background-color: #09021d;
   border: transparent;
   padding: 0.5rem;
-  opacity: 0.6;
+  opacity: 0.8;
   transition: all 0.2s ease-in-out;
 }
 
@@ -133,7 +133,39 @@
   height: 1.5rem;
 }
 
-.modalImage > img{
-  width: 50px;
-  aspect-ratio: 1;
+.modalImage {
+  margin: 5px 0;
+  gap: 1rem;
+  display: flex;
+
+  position: relative;
+}
+
+.modalImage > img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.modalImage > button {
+  /* background-color: #09021d; */
+  height: 2rem;
+  border: 0;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+.modalImage > button:hover {
+  opacity: 1;
+  color: red;
+  outline: red 1px solid;
 }

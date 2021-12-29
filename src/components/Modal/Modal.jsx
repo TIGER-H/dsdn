@@ -9,11 +9,7 @@ import { addBlog } from "../../service/postService";
 import "./modal.css";
 
 export function ModalContainer({ setOpen, data, setData }) {
-  const {
-    username: currentUser,
-    uId,
-    accountId: Address,
-  } = useSelector((state) => state.user);
+  const { uId, accountId: Address } = useSelector((state) => state.user);
 
   const [spin, setSpin] = useState(false);
 

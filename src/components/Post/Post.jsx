@@ -38,7 +38,7 @@ const Post = ({ post }) => {
 
   return (
     <div className="post">
-      <Link className="postAvatar" to={`user/${creator}`}>
+      <Link className="postAvatar" to={`/user/${creator}`}>
         <Avatar size={56} variant="beam" name={creator} />
       </Link>
       <div className="postMain">
@@ -54,7 +54,9 @@ const Post = ({ post }) => {
           <div
             className={`postAction ${isLiked ? "postAction--active" : ""}`}
             onClick={handleLikeAction}
-            style={{ color: isLiked ? "#52C3E6" : "white" }}
+            style={{
+              color: isLiked ? "#52C3E6" : "white",
+            }}
           >
             {isLiked ? <MdFavorite /> : <MdFavoriteBorder />}
             <span>{likeNum}</span>

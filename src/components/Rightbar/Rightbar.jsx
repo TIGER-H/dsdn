@@ -1,8 +1,11 @@
 import Avatar from "boring-avatars";
-import { bronzeMedal, goldMedal, silverMedal } from ".";
+import { bronzeMedal, goldMedal, silverMedal } from "."
 
 import "./rightbar.css";
 const Rightbar = () => {
+  
+
+
   return (
     <div className="rightbar">
       <div className="rightbarTabs">
@@ -62,13 +65,48 @@ const Rightbar = () => {
           <span className="rightbarTopElseName">somebody</span>
           <span className="rightbarTopElseValue">$ 2.95m</span>
         </li>
-        {/* <li className="rightbarTopElseItem">
+        <li className="rightbarTopElseItem">
           <span className="rightbarTopElseRank">8</span>
 
           <Avatar size={54} name="top4" variant="beam" />
           <span className="rightbarTopElseName">somebody</span>
           <span className="rightbarTopElseValue">$ 2.95m</span>
-        </li> */}
+        </li>
+        <li className="rightbarTopElseItem">
+          <span className="rightbarTopElseRank">8</span>
+
+          <Avatar size={54} name="top4" variant="beam" />
+          <span className="rightbarTopElseName">somebody</span>
+          <span className="rightbarTopElseValue">$ 2.95m</span>
+        </li>
+        <li className="rightbarTopElseItem">
+          <span className="rightbarTopElseRank">8</span>
+
+          <Avatar size={54} name="top4" variant="beam" />
+          <span className="rightbarTopElseName">somebody</span>
+          <span className="rightbarTopElseValue">$ 2.95m</span>
+        </li>
+        <li className="rightbarTopElseItem">
+          <span className="rightbarTopElseRank">8</span>
+
+          <Avatar size={54} name="top4" variant="beam" />
+          <span className="rightbarTopElseName">somebody</span>
+          <span className="rightbarTopElseValue">$ 2.95m</span>
+        </li>
+        <li className="rightbarTopElseItem">
+          <span className="rightbarTopElseRank">8</span>
+
+          <Avatar size={54} name="top4" variant="beam" />
+          <span className="rightbarTopElseName">somebody</span>
+          <span className="rightbarTopElseValue">$ 2.95m</span>
+        </li>
+        <li className="rightbarTopElseItem">
+          <span className="rightbarTopElseRank">8</span>
+
+          <Avatar size={54} name="top4" variant="beam" />
+          <span className="rightbarTopElseName">somebody</span>
+          <span className="rightbarTopElseValue">$ 2.95m</span>
+        </li>
       </ul>
     </div>
   );

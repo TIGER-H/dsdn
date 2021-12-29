@@ -23,9 +23,9 @@ const Sidebar = () => {
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
 
-  // const { data } = useGetUserByAddressQuery(address);
+  const [registUsername, setRegistUsername] = useState("Your name here");
+
   const [registUser, result] = useRegisterUserMutation();
-  // console.log(data);
 
   const dispatch = useDispatch();
 
@@ -64,7 +64,7 @@ const Sidebar = () => {
     const { code, data: accountData } = await getUser(address);
 
     if (code === 5005) {
-      // 用户不存在
+      // user not found, register user
       const { data: registerData } = await registUser({
         address,
       });
@@ -84,8 +84,8 @@ const Sidebar = () => {
         setUsername("New User");
       }
     } else {
-      // user exists!
-      console.log("loging in ");
+      // user exist, log in
+      console.log("loging in");
       dispatch(
         setUser({
           username: "Hello Web3",
@@ -112,10 +112,10 @@ const Sidebar = () => {
     <div className="sidebar">
       {accountId ? (
         <div className="sidebarUpper">
-          <Link to={`user/${accountId}`} className="avatarUser">
+          <Link to={`/user/${accountId}`} className="avatarUser">
             <Avatar size={70} name={accountId} variant="beam" />
           </Link>
-          <Link to={`user/${accountId}`} className="username">
+          <Link to={`/user/${accountId}`} className="username">
             {username}
           </Link>
           <span className="userAddr">
@@ -129,7 +129,9 @@ const Sidebar = () => {
             {icons.medal}
             {icons.medal}
           </div>
-          <button className="showmoreButton">Show More</button>
+          <Link className="showmoreButton" to={`user/${accountId}`}>
+            Show More
+          </Link>
         </div>
       ) : (
         <div className="guestLogin" onClick={signIn}>

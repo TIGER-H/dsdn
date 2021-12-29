@@ -34,25 +34,26 @@
   /* width: 167px; */
   height: 54px;
 
-  border: 2px solid #fff;
+  outline: 1px solid #fff;
   box-sizing: border-box;
   border-radius: 27px 0px 0px 27px;
-  margin-right: -2px;
+  margin-right: 2px;
 }
 
 .rightbarTabL:hover,
 .rightbarTabR:hover {
   cursor: pointer;
-  border-color: #52c3e6;
+  /* border-color: #52c3e6; */
   color: #52c3e6;
+  outline: #52c3e6 1px solid;
 }
 
 .rightbarTabL:hover + .rightbarTabR {
-  border-left: 2px solid #52c3e6;
+  /* border-left: 2px solid #52c3e6; */
 }
 
 .rightbarTabR:hover + .rightbarTabL {
-  border-right: transparent;
+  /* border-right: transparent; */
 }
 
 .rightbarTabR {
@@ -60,7 +61,7 @@
   height: 54px;
   color: #ffffff;
   box-sizing: border-box;
-  border: 2px solid #ffffff;
+  outline: 1px solid #ffffff;
   border-radius: 0px 27px 27px 0px;
 }
 
@@ -95,10 +96,13 @@
   padding: 0;
   height: 70%;
   list-style: none;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-around;
   color: white;
+
+  margin-top: 1rem;
+  overflow-y: scroll;
 }
 
 .rightbarTopElseRank {
@@ -108,6 +112,7 @@
 }
 
 .rightbarTopElseItem {
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

@@ -1,12 +1,30 @@
 import Posts from "../Posts";
 import Topic from "../Topic";
 import "./content.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import Avatar from "boring-avatars";
 import { AiFillPicture, AiFillEnvironment, AiFillSmile } from "react-icons/ai";
 import { FaChartBar, FaShareAlt } from "react-icons/fa";
+import { getUser } from "../../service/userService";
+import { useEffect, useState } from "react";
+import { getPostByUserId } from "../../service/postService";
+import Post from "../Post";
 
 const User = () => {
+  const { id } = useParams();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getBlogs = async (id) => {
+      const { data: userData } = await getUser(id);
+      console.log(userData);
+
+      const postsData = await getPostByUserId(userData.id);
+      setPosts(postsData);
+    };
+    getBlogs(id);
+  }, []);
+
   return (
     <div className="userInfo">
       <div className="userInfoShare">
@@ -49,7 +67,9 @@ const User = () => {
           </div>
         </div>
       </div>
-      <div className="userInfoPosts">posts</div>
+      <div className="userInfoPosts">
+        {posts && posts.map((post, index) => <Post key={index} post={post} />)}
+      </div>
     </div>
   );
 };
@@ -67,7 +87,7 @@ const Content = () => {
             </>
           }
         />
-        <Route path="user/:id" element={<User />} />
+        <Route path="/user/:id" element={<User />} />
       </Routes>
     </div>
   );

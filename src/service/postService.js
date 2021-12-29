@@ -15,6 +15,15 @@ export const addBlog = async (post) => {
   return blogDetail.data;
 };
 
+export const getPostByUserId = async (uId) => {
+  const { data } = await axios.get("/blog/getBlog", {
+    params: {
+      uId,
+    },
+  });
+  return data.data;
+};
+
 export const postApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({ baseUrl: "blog/" }),

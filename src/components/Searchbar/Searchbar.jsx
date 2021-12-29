@@ -1,4 +1,3 @@
-import search from "./search.svg";
 import btn1 from "./button-1.svg";
 import btn2 from "./button-2.svg";
 import "./searchbar.css";

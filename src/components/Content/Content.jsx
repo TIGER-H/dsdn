@@ -25,7 +25,7 @@ const User = () => {
       setPosts(postsData);
     };
     getBlogs(id);
-  }, []);
+  }, [id]);
 
   return (
     <div className="userInfo">

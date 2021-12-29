@@ -42,7 +42,7 @@ const Post = ({ post }) => {
     getUser(creator).then(({ data }) => {
       setUsername(data.nickName);
     });
-  }, []);
+  }, [creator]);
 
   return (
     <div className="post">
@@ -54,7 +54,7 @@ const Post = ({ post }) => {
         <div className="postContent">
           {blogText}
           {imageUrl && (
-            <img src={imageUrl} alt="image not found" className="postImage" />
+            <img src={imageUrl} alt="not found" className="postImage" />
           )}
         </div>
         <div className="postTime">{timeago.format(createTime)}</div>

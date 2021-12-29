@@ -7,14 +7,14 @@ import Post from "../Post";
 const Posts = () => {
   const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
-  const { data, error, refetch } = useGetPostsQuery();
+  const { data, refetch } = useGetPostsQuery();
 
   useEffect(() => {
     refetch();
     if (data) {
       dispatch(setPosts(data.data));
     }
-  }, [data, posts]);
+  }, [data, posts, refetch, dispatch]);
 
   return (
     <div className="posts">

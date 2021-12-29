@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const addBlog = async (post) => {
   const { data } = await axios.post("/blog/addBlog", post);
-  const { blogUrl, id } = data.data;
+  const { id } = data.data;
 
   const { data: blogDetail } = await axios.get("/blog/getBlog", {
     params: {

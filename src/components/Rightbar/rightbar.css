@@ -4,7 +4,7 @@
   top: 6.25rem;
   /* margin-top: 6.25rem; */
 
-  width: 20rem;
+  width: 21rem;
   /* width: 446px; */
   /* height: 783px; */
   height: calc(100vh - 7.25rem);
@@ -13,6 +13,7 @@
   border-radius: 17px;
   display: flex;
   flex-direction: column;
+  padding: 0 1rem;
 }
 
 .rightbarTabs {
@@ -76,7 +77,12 @@
   padding-top: 1rem;
 }
 
-.rightbarTopThreeItemName{
+.rightbarTopThree > * {
+  width: 33%;
+
+}
+
+.rightbarTopThreeItemName {
   text-overflow: ellipsis;
 }
 
@@ -123,7 +129,7 @@
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .rightbarTopElseName {

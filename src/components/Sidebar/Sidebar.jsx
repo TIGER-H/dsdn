@@ -31,7 +31,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
-  const [registerUser, result] = useRegisterUserMutation();
+  const [registerUser] = useRegisterUserMutation();
   const dispatch = useDispatch();
 
   const register = async (username) => {

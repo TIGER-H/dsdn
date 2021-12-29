@@ -19,42 +19,43 @@ import {
 import { BsPeople } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 const Sidebar = () => {
+  const [open, setOpen] = useState(false);
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
-
-  const [registUsername, setRegistUsername] = useState("Your name here");
-
-  const [registUser, result] = useRegisterUserMutation();
-
+  const [registerUser, result] = useRegisterUserMutation();
   const dispatch = useDispatch();
 
-  // NEAR sign logic
-  // const wallet = useNear();
-  // const signIn = () => {
-  //   wallet.then((wallet) => {
-  //     wallet.requestSignIn();
-  //   });
-  // };
-  // const signOut = () => {
-  //   wallet.then((wallet) => {
-  //     wallet.signOut();
-  //     setAccountId(null);
-  //     setUsername("Guest");
-  //     dispatch(setUser({ username: "Guest", accountId: null }));
-  //   });
-  // };
-  // useEffect(() => {
-  //   wallet.then((wallet) => {
-  //     if (wallet.isSignedIn()) {
-  //       setAccountId(wallet.getAccountId());
-  //       setUsername("User");
-  //       dispatch(
-  //         setUser({ accountId: wallet.getAccountId(), username: "User" })
-  //       );
-  //     }
-  //   });
-  // }, [accountId]);
+  const register = async (username) => {
+    const { address } = await connectWallet();
+    const { data: registerData } = await registerUser({
+      address,
+      nickName: username,
+    });
+    // data: { code, data : { id }, message }
+
+    if (registerData.code === 0) {
+      console.log("注册成功");
+      dispatch(
+        setUser({
+          username,
+          accountId: address,
+          uId: registerData.data.id,
+        })
+      );
+
+      setAccountId(address);
+      setUsername(username);
+    }
+  };
 
   const signIn = async () => {
     // connect to metamask
@@ -64,37 +65,20 @@ const Sidebar = () => {
     const { code, data: accountData } = await getUser(address);
 
     if (code === 5005) {
-      // user not found, register user
-      const { data: registerData } = await registUser({
-        address,
-      });
-      // data: {code, data : {id}, message}
-
-      if (registerData.code === 0) {
-        console.log("注册成功");
-        dispatch(
-          setUser({
-            username: "New User",
-            accountId: address,
-            uId: registerData.data.id,
-          })
-        );
-
-        setAccountId(address);
-        setUsername("New User");
-      }
+      // user not found, open a form to register user
+      setOpen(true);
     } else {
       // user exist, log in
-      console.log("loging in");
+      console.log("user exists, loging in");
       dispatch(
         setUser({
-          username: "Hello Web3",
+          username: accountData.nickName,
           accountId: accountData.address,
           uId: accountData.id,
         })
       );
       setAccountId(accountData.address);
-      setUsername("Hello Web3");
+      setUsername(accountData.nickName);
     }
   };
 
@@ -106,7 +90,7 @@ const Sidebar = () => {
     getCurrentWalletConnected().then(({ address }) => {
       if (address) signIn();
     });
-  });
+  }, []);
 
   return (
     <div className="sidebar">
@@ -140,6 +124,7 @@ const Sidebar = () => {
             <span className="loginText">Login {<FaChevronRight />}</span>
             <span className="loginDesc">Login with your wallet</span>
           </div>
+          <FormDialog open={open} setOpen={setOpen} register={register} />
         </div>
       )}
       <div className="sidebarBottom">
@@ -175,3 +160,64 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+const FormDialog = ({ open, setOpen, register }) => {
+  const [username, setUsername] = useState("");
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>Register</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          You are new to this website, please enter your username here to
+          register.
+        </DialogContentText>
+        <TextField
+          autoFocus
+          margin="dense"
+          id="name"
+          label="Username"
+          type="text"
+          fullWidth
+          variant="standard"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={() => register(username)}>Register</Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
+// NEAR sign logic
+// const wallet = useNear();
+// const signIn = () => {
+//   wallet.then((wallet) => {
+//     wallet.requestSignIn();
+//   });
+// };
+// const signOut = () => {
+//   wallet.then((wallet) => {
+//     wallet.signOut();
+//     setAccountId(null);
+//     setUsername("Guest");
+//     dispatch(setUser({ username: "Guest", accountId: null }));
+//   });
+// };
+// useEffect(() => {
+//   wallet.then((wallet) => {
+//     if (wallet.isSignedIn()) {
+//       setAccountId(wallet.getAccountId());
+//       setUsername("User");
+//       dispatch(
+//         setUser({ accountId: wallet.getAccountId(), username: "User" })
+//       );
+//     }
+//   });
+// }, [accountId]);

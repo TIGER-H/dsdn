@@ -1,5 +1,5 @@
 import Avatar from "boring-avatars";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as timeago from "timeago.js";
 import { useDispatch, useSelector } from "react-redux";
 import { likePost, unlikePost } from "../../features/posts/postsSlice";
@@ -12,12 +12,14 @@ import {
   MdShare,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { getUser } from "../../service/userService";
 
 const Post = ({ post }) => {
   const { creator, blogText, createTime, likeNum, comment, imageUrl } = post;
 
   const { uId } = useSelector((state) => state.user);
   const [isLiked, setIsLiked] = useState(false);
+  const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
   const handleLikeAction = async () => {
@@ -36,13 +38,19 @@ const Post = ({ post }) => {
     }
   };
 
+  useEffect(() => {
+    getUser(creator).then(({ data }) => {
+      setUsername(data.nickName);
+    });
+  }, []);
+
   return (
     <div className="post">
       <Link className="postAvatar" to={`/user/${creator}`}>
         <Avatar size={56} variant="beam" name={creator} />
       </Link>
       <div className="postMain">
-        <div className="postUsername">{creator}</div>
+        <div className="postUsername">{username}</div>
         <div className="postContent">
           {blogText}
           {imageUrl && (

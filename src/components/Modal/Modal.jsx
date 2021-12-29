@@ -6,12 +6,16 @@ import { pinJSONToIPFS } from "../../contracts/pinata";
 import { addPost } from "../../features/posts/postsSlice";
 import { imageUpload } from "../../service/imageUpload";
 import { addBlog } from "../../service/postService";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import "./modal.css";
 
 export function ModalContainer({ setOpen, data, setData }) {
   const { uId, accountId: Address } = useSelector((state) => state.user);
-
-  const [spin, setSpin] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -20,6 +24,9 @@ export function ModalContainer({ setOpen, data, setData }) {
 
   const [localData, setLocalData] = useState(data);
   const { text } = localData;
+
+  // dialog logic
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleUpload = ({ target }) => {
     console.log(target.files[0]);
@@ -37,21 +44,13 @@ export function ModalContainer({ setOpen, data, setData }) {
     setOpen(false);
   }
 
-  async function submit() {
-    setSpin(true);
-    setData({
-      text: "",
-    });
+  const sendToServer = async (post) => {
+    const res = await addBlog(post);
+    return res[0];
+  };
 
-    const res = await addBlog({
-      Address,
-      blogText: text,
-      imageUrl,
-      uId,
-    });
-    console.log(res[0]);
-
-    const pinataResponse = await pinJSONToIPFS(res[0]);
+  const sendToIPFS = async (fileLink) => {
+    const pinataResponse = await pinJSONToIPFS(fileLink);
     if (!pinataResponse.success) {
       return {
         success: false,
@@ -59,20 +58,57 @@ export function ModalContainer({ setOpen, data, setData }) {
       };
     }
     console.log(pinataResponse);
-
-    const contract = await loadContract();
-
     const tokenURI = pinataResponse.pinataUrl;
+    return tokenURI;
+  };
+
+  function submit() {
+    setData({
+      text: "",
+    });
+
+    setDialogOpen(true);
+  }
+
+  // add post to server only
+  const submitContent = async () => {
+    const post = {
+      Address,
+      blogText: text,
+      imageUrl,
+      uId,
+    };
+    const postLink = await sendToServer(post);
+    dispatch(addPost(postLink));
+    close();
+  };
+
+  // nft mint and add to server
+  const submitNFT = async () => {
+    const post = {
+      Address,
+      blogText: text,
+      imageUrl,
+      uId,
+    };
+    const postLink = await sendToServer(post);
+    const tokenURI = await sendToIPFS(postLink);
+    const contract = await loadContract();
 
     await mintNFT(tokenURI, contract, Address);
 
-    dispatch(addPost(res[0]));
-
+    dispatch(addPost(postLink));
     close();
-  }
+  };
 
   return ReactDOM.createPortal(
     <>
+      <DialogNFT
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        handleContent={submitContent}
+        handleNFT={submitNFT}
+      />
       <div className="modalShadow" onClick={close} />
       <div className="modal">
         <div className="modalBanner">Post Your New Clip</div>
@@ -148,7 +184,7 @@ export function ModalContainer({ setOpen, data, setData }) {
             />
           </label>
           <button className="modalBottomButton" onClick={submit}>
-            {spin ? "Submitting" : "Submit"}
+            Submit
           </button>
         </div>
       </div>
@@ -156,3 +192,46 @@ export function ModalContainer({ setOpen, data, setData }) {
     document.getElementById("app-modal")
   );
 }
+
+const DialogNFT = ({ open, setOpen, handleContent, handleNFT }) => {
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <Dialog
+      className="dialogNFT"
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="dialog-title"
+      aria-describedby="dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">
+        {"Make this content NFT?"}
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          Confirm to make this content NFT, you will not be able to edit it. If
+          you want to edit it, you need to make it a normal content.
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions className="dialogNFTButtons">
+        <Button
+          variant="outlined"
+          onClick={handleContent}
+          style={{ color: "#52c3e6", border: "1px solid #52c3e6" }}
+        >
+          Normal Content
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={handleNFT}
+          style={{ color: "#52c3e6", border: "1px solid #52c3e6" }}
+          autoFocus
+        >
+          NFT
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};

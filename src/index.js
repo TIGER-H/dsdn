@@ -6,13 +6,24 @@ import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import { Buffer } from 'buffer'
-window.Buffer = Buffer; 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+// web3 fixed
+import { Buffer } from "buffer";
+window.Buffer = Buffer;
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <ThemeProvider theme={darkTheme}>
+        <App />
+      </ThemeProvider>
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")

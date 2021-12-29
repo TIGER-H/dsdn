@@ -9,10 +9,12 @@ import { getUser } from "../../service/userService";
 import { useEffect, useState } from "react";
 import { getPostByUserId } from "../../service/postService";
 import Post from "../Post";
+import { useSelector } from "react-redux";
 
 const User = () => {
   const { id } = useParams();
   const [posts, setPosts] = useState([]);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     const getBlogs = async (id) => {
@@ -38,7 +40,7 @@ const User = () => {
         <div className="userInfoShareBottom">
           <div className="userInfoShareBL">
             <div className="userAvatar">
-              <Avatar name="username" variant="beam" size={50} />
+              <Avatar name={user.accountId} variant="beam" size={50} />
             </div>
           </div>
           <div className="userInfoShareBR">

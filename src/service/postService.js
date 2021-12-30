@@ -4,25 +4,19 @@ import axios from "axios";
 // refactor api mutation call
 
 export const addBlog = async (post) => {
-  const { data } = await axios.post(
-    "http://wengyifan.com:8080/" + "blog/addBlog",
-    post
-  );
+  const { data } = await axios.post("/blog/addBlog", post);
   const { id } = data.data;
 
-  const { data: blogDetail } = await axios.get(
-    "http://wengyifan.com:8080/" + "blog/getBlog",
-    {
-      params: {
-        id,
-      },
-    }
-  );
+  const { data: blogDetail } = await axios.get("/blog/getBlog", {
+    params: {
+      id,
+    },
+  });
   return blogDetail.data;
 };
 
 export const getPostByUserId = async (uId) => {
-  const { data } = await axios.get("http://wengyifan.com:8080/" + "blog/getBlog", {
+  const { data } = await axios.get("/blog/getBlog", {
     params: {
       uId,
     },
@@ -31,7 +25,7 @@ export const getPostByUserId = async (uId) => {
 };
 
 export const updateBlog = async (id, ipfsUrl) => {
-  const { data } = await axios.post("http://wengyifan.com:8080/" + "blog/updateBlog", {
+  const { data } = await axios.post("/blog/updateBlog", {
     id,
     ipfsUrl,
   });
@@ -40,12 +34,14 @@ export const updateBlog = async (id, ipfsUrl) => {
 
 export const postApi = createApi({
   reducerPath: "blogApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://wengyifan.com:8080/" + "blog/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://wengyifan.com:8080/" + "blog/",
+  }),
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: (id) => {
         return {
-          url: `getBlog/`,
+          url: `getBlog`,
           params: { id },
         };
       },

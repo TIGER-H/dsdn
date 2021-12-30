@@ -9,7 +9,7 @@ const Rightbar = () => {
   const [rankList, setRankList] = useState([]);
 
   useEffect(() => {
-    axios.get("/ranklist/likeList/?num=15").then((res) => {
+    axios.get("/ranklist/likeList?num=15").then((res) => {
       setRankList(res.data.data);
     });
   }, []);

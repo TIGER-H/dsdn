@@ -134,6 +134,7 @@
 
 .rightbarTopElseName {
   font-size: 18px;
+  flex-basis: 100px;
 }
 .rightbarTopElseValue {
   font-size: 14px;

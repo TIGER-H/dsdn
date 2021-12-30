@@ -5,6 +5,7 @@ import {
   connectWallet,
   getCurrentWalletConnected,
 } from "../../contracts/interact";
+import { Link } from "react-router-dom";
 import { setUser } from "../../features/user/userSlice";
 import { getUser, useRegisterUserMutation } from "../../service/userService";
 import icons from "./icons";
@@ -17,7 +18,6 @@ import {
   AiOutlineCopy,
 } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
-import { Link } from "react-router-dom";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";

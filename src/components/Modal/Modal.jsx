@@ -91,8 +91,9 @@ export function ModalContainer({ setOpen, data, setData }) {
       imageUrl,
       uId,
     };
-    const postLink = await sendToServer(post);
+
     const tokenURI = await sendToIPFS(postLink);
+    const postLink = await sendToServer({ ...post, ipfsUrl: tokenURI });
     const contract = await loadContract();
 
     await mintNFT(tokenURI, contract, Address);

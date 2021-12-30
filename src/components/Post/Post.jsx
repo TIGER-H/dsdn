@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 import { getUser } from "../../service/userService";
 
 const Post = ({ post }) => {
-  const { creator, blogText, createTime, likeNum, comment, imageUrl } = post;
+  const { creator, blogText, createTime, likeNum, comment, imageUrl, ipfsUrl } =
+    post;
 
   const { uId } = useSelector((state) => state.user);
   const [isLiked, setIsLiked] = useState(false);
@@ -54,7 +55,9 @@ const Post = ({ post }) => {
         <div className="postContent">
           {blogText}
           {imageUrl && (
-            <img src={imageUrl} alt="not found" className="postImage" />
+            <a href={ipfsUrl} target="_blank">
+              <img src={imageUrl} alt="not found" className="postImage" />
+            </a>
           )}
         </div>
         <div className="postTime">{timeago.format(createTime)}</div>

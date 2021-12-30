@@ -5,7 +5,7 @@ import { loadContract, mintNFT } from "../../contracts/interact";
 import { pinJSONToIPFS } from "../../contracts/pinata";
 import { addPost } from "../../features/posts/postsSlice";
 import { imageUpload } from "../../service/imageUpload";
-import { addBlog } from "../../service/postService";
+import { addBlog, updateBlog } from "../../service/postService";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -46,7 +46,7 @@ export function ModalContainer({ setOpen, data, setData }) {
 
   const sendToServer = async (post) => {
     const res = await addBlog(post);
-    return res[0];
+    return res;
   };
 
   const sendToIPFS = async (fileLink) => {
@@ -92,13 +92,15 @@ export function ModalContainer({ setOpen, data, setData }) {
       uId,
     };
 
-    const tokenURI = await sendToIPFS(postLink);
-    const postLink = await sendToServer({ ...post, ipfsUrl: tokenURI });
+    const res = await sendToServer(post);
+    const id = res[0].id;
+    const tokenURI = await sendToIPFS(res[0]);
+    await updateBlog(id, tokenURI);
     const contract = await loadContract();
 
     await mintNFT(tokenURI, contract, Address);
 
-    dispatch(addPost(postLink));
+    dispatch(addPost({ ...post, ipfsUrl: tokenURI }));
     close();
   };
 

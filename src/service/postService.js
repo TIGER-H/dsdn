@@ -24,6 +24,14 @@ export const getPostByUserId = async (uId) => {
   return data.data;
 };
 
+export const updateBlog = async (id, ipfsUrl) => {
+  const { data } = await axios.post("/blog/updateBlog", {
+    id,
+    ipfsUrl,
+  });
+  return data.data;
+};
+
 export const postApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({ baseUrl: "blog/" }),

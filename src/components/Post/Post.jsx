@@ -78,7 +78,7 @@ const Post = ({ post }) => {
           </div>
           <div className="postAction">
             <MdShare />
-            <span>3</span>
+            <span>0</span>
           </div>
         </div>
       </div>

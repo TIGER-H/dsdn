@@ -10,7 +10,7 @@ export const imageUpload = async (file) => {
 
   try {
     const response = await fetch(
-      process.env.baseUrl + "image/uploadImage",
+      "http://wengyifan.com:8080/" + "image/uploadImage",
       requestOptions
     );
     const { data } = await response.json();

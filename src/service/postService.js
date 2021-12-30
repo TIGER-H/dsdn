@@ -5,13 +5,13 @@ import axios from "axios";
 
 export const addBlog = async (post) => {
   const { data } = await axios.post(
-    process.env.baseUrl + "/blog/addBlog",
+    "http://wengyifan.com:8080/" + "blog/addBlog",
     post
   );
   const { id } = data.data;
 
   const { data: blogDetail } = await axios.get(
-    process.env.baseUrl + "/blog/getBlog",
+    "http://wengyifan.com:8080/" + "blog/getBlog",
     {
       params: {
         id,
@@ -22,7 +22,7 @@ export const addBlog = async (post) => {
 };
 
 export const getPostByUserId = async (uId) => {
-  const { data } = await axios.get(process.env.baseUrl + "/blog/getBlog", {
+  const { data } = await axios.get("http://wengyifan.com:8080/" + "blog/getBlog", {
     params: {
       uId,
     },
@@ -31,7 +31,7 @@ export const getPostByUserId = async (uId) => {
 };
 
 export const updateBlog = async (id, ipfsUrl) => {
-  const { data } = await axios.post(process.env.baseUrl + "/blog/updateBlog", {
+  const { data } = await axios.post("http://wengyifan.com:8080/" + "blog/updateBlog", {
     id,
     ipfsUrl,
   });
@@ -40,7 +40,7 @@ export const updateBlog = async (id, ipfsUrl) => {
 
 export const postApi = createApi({
   reducerPath: "blogApi",
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.baseUrl + "blog/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://wengyifan.com:8080/" + "blog/" }),
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: (id) => {

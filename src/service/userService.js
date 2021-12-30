@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 
 export const getUser = async (address) => {
-  const res = await axios.get(process.env.baseUrl + "/user/getUser", {
+  const res = await axios.get("http://wengyifan.com:8080/" + "user/getUser", {
     params: {
       address,
     },
@@ -12,7 +12,9 @@ export const getUser = async (address) => {
 
 export const userApi = createApi({
   reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "user/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://wengyifan.com:8080/" + "user/",
+  }),
   endpoints: (builder) => ({
     getUserByAddress: builder.query({
       query: (address) => {

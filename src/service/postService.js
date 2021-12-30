@@ -4,19 +4,25 @@ import axios from "axios";
 // refactor api mutation call
 
 export const addBlog = async (post) => {
-  const { data } = await axios.post("/blog/addBlog", post);
+  const { data } = await axios.post(
+    process.env.baseUrl + "/blog/addBlog",
+    post
+  );
   const { id } = data.data;
 
-  const { data: blogDetail } = await axios.get("/blog/getBlog", {
-    params: {
-      id,
-    },
-  });
+  const { data: blogDetail } = await axios.get(
+    process.env.baseUrl + "/blog/getBlog",
+    {
+      params: {
+        id,
+      },
+    }
+  );
   return blogDetail.data;
 };
 
 export const getPostByUserId = async (uId) => {
-  const { data } = await axios.get("/blog/getBlog", {
+  const { data } = await axios.get(process.env.baseUrl + "/blog/getBlog", {
     params: {
       uId,
     },
@@ -25,7 +31,7 @@ export const getPostByUserId = async (uId) => {
 };
 
 export const updateBlog = async (id, ipfsUrl) => {
-  const { data } = await axios.post("/blog/updateBlog", {
+  const { data } = await axios.post(process.env.baseUrl + "/blog/updateBlog", {
     id,
     ipfsUrl,
   });
@@ -34,7 +40,7 @@ export const updateBlog = async (id, ipfsUrl) => {
 
 export const postApi = createApi({
   reducerPath: "blogApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "blog/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.baseUrl + "blog/" }),
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: (id) => {

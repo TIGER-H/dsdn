@@ -9,7 +9,10 @@ export const imageUpload = async (file) => {
   };
 
   try {
-    const response = await fetch("image/uploadImage", requestOptions);
+    const response = await fetch(
+      process.env.baseUrl + "image/uploadImage",
+      requestOptions
+    );
     const { data } = await response.json();
     return data.imageUrl;
   } catch (err) {

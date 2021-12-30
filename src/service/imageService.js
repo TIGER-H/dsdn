@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 export const imageApi = createApi({
   reducerPath: "imageApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "image/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.baseUrl + "image/" }),
   endpoints: (builder) => ({
     uploadImage: builder.mutation({
       query: (file) => {

@@ -7,7 +7,11 @@ import {
 } from "../../contracts/interact";
 import { Link } from "react-router-dom";
 import { setUser } from "../../features/user/userSlice";
-import { getUser, registerUser, useRegisterUserMutation } from "../../service/userService";
+import {
+  getUser,
+  registerUser,
+  useRegisterUserMutation,
+} from "../../service/userService";
 import icons from "./icons";
 import "./sidebar.css";
 
@@ -31,6 +35,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
+
   // const [registerUser] = useRegisterUserMutation();
   const dispatch = useDispatch();
 
@@ -69,7 +74,6 @@ const Sidebar = () => {
       setOpen(true);
     } else {
       // user exist, log in
-      console.log("user exists, loging in");
       dispatch(
         setUser({
           username: accountData.nickName,
@@ -168,7 +172,10 @@ const FormDialog = ({ open, setOpen, register }) => {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog
+      open={open}
+      // onClose={handleClose}
+    >
       <DialogTitle>Register</DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -188,7 +195,7 @@ const FormDialog = ({ open, setOpen, register }) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        {/* <Button onClick={handleClose}>Cancel</Button> */}
         <Button onClick={() => register(username)}>Register</Button>
       </DialogActions>
     </Dialog>

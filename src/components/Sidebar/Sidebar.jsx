@@ -7,7 +7,7 @@ import {
 } from "../../contracts/interact";
 import { Link } from "react-router-dom";
 import { setUser } from "../../features/user/userSlice";
-import { getUser, useRegisterUserMutation } from "../../service/userService";
+import { getUser, registerUser, useRegisterUserMutation } from "../../service/userService";
 import icons from "./icons";
 import "./sidebar.css";
 
@@ -31,7 +31,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [accountId, setAccountId] = useState("");
   const [username, setUsername] = useState("Guest");
-  const [registerUser] = useRegisterUserMutation();
+  // const [registerUser] = useRegisterUserMutation();
   const dispatch = useDispatch();
 
   const register = async (username) => {

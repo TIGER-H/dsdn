@@ -10,6 +10,11 @@ export const getUser = async (address) => {
   return res.data;
 };
 
+export const registerUser = async (user) => {
+  const res = await instance.post("user/registerUser", user);
+  return res;
+};
+
 export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({

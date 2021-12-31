@@ -1,7 +1,7 @@
-import axios from "axios";
+import { instance } from ".";
 
 export const likePostAction = async (blogId, uId, like) => {
-  const { data } = await axios.get("/blog/like", {
+  const { data } = await instance.get("/blog/like", {
     params: {
       blogId,
       uId,

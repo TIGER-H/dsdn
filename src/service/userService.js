@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import axios from "axios";
+import { instance } from ".";
 
 export const getUser = async (address) => {
-  const res = await axios.get("http://wengyifan.com:8080/" + "user/getUser", {
+  const res = await instance.get("user/getUser", {
     params: {
       address,
     },

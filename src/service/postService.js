@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import axios from "axios";
+import { instance } from ".";
 
 // refactor api mutation call
 
 export const addBlog = async (post) => {
-  const { data } = await axios.post("/blog/addBlog", post);
+  const { data } = await instance.post("/blog/addBlog", post);
   const { id } = data.data;
 
-  const { data: blogDetail } = await axios.get("/blog/getBlog", {
+  const { data: blogDetail } = await instance.get("/blog/getBlog", {
     params: {
       id,
     },
@@ -16,7 +16,7 @@ export const addBlog = async (post) => {
 };
 
 export const getPostByUserId = async (uId) => {
-  const { data } = await axios.get("/blog/getBlog", {
+  const { data } = await instance.get("/blog/getBlog", {
     params: {
       uId,
     },
@@ -25,7 +25,7 @@ export const getPostByUserId = async (uId) => {
 };
 
 export const updateBlog = async (id, ipfsUrl) => {
-  const { data } = await axios.post("/blog/updateBlog", {
+  const { data } = await instance.post("/blog/updateBlog", {
     id,
     ipfsUrl,
   });

@@ -1,15 +1,16 @@
-import axios from "axios";
 import Avatar from "boring-avatars";
 import { useEffect, useState } from "react";
 import { bronzeMedal, goldMedal, silverMedal } from ".";
 import { MdFavoriteBorder } from "react-icons/md";
 
 import "./rightbar.css";
+import { instance } from "../../service";
+
 const Rightbar = () => {
   const [rankList, setRankList] = useState([]);
 
   useEffect(() => {
-    axios.get("/ranklist/likeList?num=15").then((res) => {
+    instance.get("ranklist/likeList?num=15").then((res) => {
       setRankList(res.data.data);
     });
   }, []);
